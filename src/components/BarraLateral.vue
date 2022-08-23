@@ -51,7 +51,7 @@ header {
     padding: 1rem;
     background: #35393d;
     width: 100%;
-    height: 100vh;
+    height: 130vh;
 }
 @media only screen and (max-width: 768px) {
     header  {
