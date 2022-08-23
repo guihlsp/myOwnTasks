@@ -8,7 +8,7 @@
             >
                 <input 
                     type="text" 
-                    class="input" 
+                    class="input"
                     placeholder="Qual tarefa deseja iniciar?"
                     v-model="descricao"
                 />
