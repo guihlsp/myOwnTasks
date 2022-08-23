@@ -60,14 +60,14 @@ header {
     }
 }
 .logo h2{
-    color: bisque;
+    color: #faf0ca;
     padding: 0.5rem;
 }
 .menu {
     margin-top: 40px;
 }
 .menu-label {
-    color: antiquewhite;
+    color: #faf0ca;
 }
 .menu-list li a {
     color: rgb(224, 178, 26);
