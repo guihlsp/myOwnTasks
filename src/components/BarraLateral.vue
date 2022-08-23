@@ -18,16 +18,13 @@
                 <ul class="menu-list">
                     <li><a>Dashboard</a></li>
                     <li><a class="is-active">Temporizador</a></li>
-                    <li><a>Dashboard</a></li>
-                    <li><a>Dashboard</a></li>
-                    <li><a>Dashboard</a></li>
-
+                    <li><a>Agenda</a></li>
                 </ul>
                 <p class="menu-label">
                     Auxiliares
                 </p>
                 <ul class="menu-list">
-                    <li><a>Agenda</a></li>
+                    
                     <li><a>Configurações</a></li>
                     <li><a class ="sair">Sair</a></li>
                 </ul>
