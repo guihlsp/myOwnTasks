@@ -1,20 +1,25 @@
 <template>
     <div class="box">
         <div class="columns">
-            <div 
-                class="column is-8" 
-                role="form" 
-                aria-label="Formulário para criação de uma nova tarefa"
-            >
-                <input 
-                    type="text" 
-                    class="input"
-                    placeholder="Qual tarefa deseja iniciar?"
-                    v-model="descricao"
-                />
+            <div class="column is-8">
+                <div 
+                    class="column" 
+                    role="form" 
+                    aria-label="Formulário para criação de uma nova tarefa"
+                >
+                    <input 
+                        type="text" 
+                        class="input"
+                        placeholder="Qual tarefa deseja iniciar?"
+                        v-model="descricao"
+                    />
+                </div>
             </div>
             <div class="column">
-                <Temporizador @aoTemporizadorFinalizado= "finalizarTarefa"/>
+                <div class="column" >
+                    <Temporizador 
+                    @aoTemporizadorFinalizado= "finalizarTarefa" aoTemporizadorPausado=''/>
+                </div>
             </div>
         </div>
     </div>
@@ -47,3 +52,6 @@ export default defineComponent({
 });
 
 </script>
+<style scoped>
+
+</style>

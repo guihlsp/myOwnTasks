@@ -1,13 +1,17 @@
 <template>
-    <div class="is-flex is-align-items-center is-justify-content-space-between">
-        <Cronometro :tempoEmSegundos="tempoEmSegundos"/>
-        <div class="buttons has-addons">
+    <div class="is-relative is-align-items-center is-justify-content-space-between">
+        <div class="buttons has-addons is-centered">
             <Play
             @click="iniciar" 
             :disabled="cronometroRodando"/>
+            <Pause
+            :disabled="!cronometroRodando"/>
             <Stop
             @click="finalizar" 
             :disabled="!cronometroRodando"/>
+        </div>
+        <div class="tempo">
+            <Cronometro :tempoEmSegundos="tempoEmSegundos"/>
         </div>
     </div>
 </template>
@@ -18,6 +22,7 @@ import { defineComponent } from 'vue'
 import Cronometro from './Cronometro.vue'
 import Play from './buttons/Play.vue'
 import Stop from './buttons/Stop.vue'
+import Pause from './buttons/Pause.vue';
 
 export default defineComponent({
     name: 'TemporizadorComponent',
@@ -25,7 +30,8 @@ export default defineComponent({
     components: {
     Cronometro,
     Play,
-    Stop
+    Stop,
+    Pause
 },
     data (){
         return{
@@ -41,6 +47,9 @@ export default defineComponent({
                 this.tempoEmSegundos += 1
             }, 1000)
         },
+        pausar () {
+            this.cronometroRodando = false
+        },
         finalizar () {
             this.cronometroRodando = false
             clearInterval(this.cronometro)
@@ -52,7 +61,10 @@ export default defineComponent({
 
 </script>
 
-<style>
+<style scoped>
 
+.tempo {
+    margin-left: 43%;
+}
 
 </style>
