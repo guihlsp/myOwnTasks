@@ -2,7 +2,7 @@
     <header>
         <section class="logo">
                 <div class="botao-menu">
-                    <button class="button is-white is-outlined">
+                    <button class="button is-warning is-outlined">
                         <span class="icon">
                             <i class="fa fa-bars" aria-hidden="true"></i>
                         </span> 
@@ -25,12 +25,14 @@
                     General
                 </p>
                 <ul class="menu-list">
-                    <li><a class="is-disabled"><i class="fa fa-home" aria-hidden="true"></i>
-                    Dashboard</a></li>
-                    <li><a><i class="fa fa-hourglass" aria-hidden="true"></i>
-                    Timetracker</a></li>
-                    <li><a><i class="fa fa-calendar" aria-hidden="true"></i>
-                    Agenda</a></li>
+                        <ul class="menu-top">
+                        <li><a class="is-disabled"><i class="fa fa-home" aria-hidden="true"></i>
+                        Dashboard</a></li>
+                        <li><a class="is-active"   ><i class="fa fa-hourglass " aria-hidden="true"></i>
+                        Timetracker</a></li>
+                        <li><a><i class="fa fa-calendar" aria-hidden="true"></i>
+                        Agenda</a></li>
+                    </ul>
                     <ul class="menu-botton">
                         <li><a><i class="fa fa-sliders" aria-hidden="true"></i>
                         Configurações</a></li>
@@ -58,12 +60,21 @@ header {
     padding: 1rem;
     background: #35393d;
     width: 100%;
-    height: 110%;
+    height: 100vh;
 }
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 768px) {
     header  {
         padding: 2rem;
         height: auto;
+    }
+    .menu-top{
+    display: flex;
+    justify-content:center;
+    ;
+    }
+    .menu-botton{
+    display: flex;
+    justify-content:center;
     }
 }
 
@@ -90,9 +101,4 @@ header {
     color: rgb(224, 178, 26);
     padding: 1rem;
 }
-
-.menu-botton{
-    margin-top: 20%;
-}
-
 </style>

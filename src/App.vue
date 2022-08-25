@@ -20,6 +20,11 @@ export default defineComponent({
 </script>
 
 
-<style scoped>
+<style>
+  @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"; 
 
+  body{
+  min-height: 100vh;
+  }
 </style>
+
