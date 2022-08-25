@@ -6,15 +6,21 @@
                 aria-hidden="true"></i>
             </span>
             <slot></slot>
+            <Adicionar class="adicionar">Adicionar minha primeira tarefa</Adicionar>
         </div>
     </div>
 </template>
 
 <script lang="ts">
     import {defineComponent} from 'vue'
+    import Adicionar from './buttons/Adicionar.vue'
+
 
     export default defineComponent({
-        name: 'cardComponent'
+        name: 'cardComponent',
+        components: {
+            Adicionar
+        }
     })
 </script>
 
@@ -29,11 +35,12 @@
         text-align: center;
         font-size: large;
         font-weight:bolder;
-        
     }
     .icon{
         color: #faf0ca;
-
+        margin-bottom: 2%;
     }
-    
+    .adicionar{
+        margin-top: 2%;
+    }
 </style>

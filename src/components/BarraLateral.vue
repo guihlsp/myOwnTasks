@@ -51,7 +51,7 @@ header {
     width: 100%;
     height: 110%;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 425px) {
     header  {
         padding: 2rem;
         height: auto;
