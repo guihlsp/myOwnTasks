@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-content">
             <span class="icon">
-                <i class="fa fa-exclamation-triangle" 
+                <i class="fa fa-exclamation-triangle fa-4x" 
                 aria-hidden="true"></i>
             </span>
             <slot></slot>
@@ -33,6 +33,7 @@
     }
     .icon{
         color: #faf0ca;
+
     }
     
 </style>

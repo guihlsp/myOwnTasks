@@ -14,9 +14,8 @@
         :tarefa="tarefa"/>
       </div>
       <tabela/>
-      <Card class="card">
-        <h1 style="justify-content:center"
-        >Não foi inserida nenhuma tarefa até o momento!</h1>
+      <Card class="card" v-if="listaVazia">
+        <h1>Até o momento não há tarefas registradas!</h1>
       </Card>
     </div>
     
@@ -47,6 +46,12 @@ export default defineComponent({
       tarefas: [] as ITarefa[]
     }
   },
+  computed: {
+    listaVazia () : boolean {
+      return this.tarefas.length === 0
+    }
+    
+  },
   methods: {
     salvarTarefa (tarefa: ITarefa) {
       this.tarefas.push(tarefa)
@@ -64,5 +69,6 @@ export default defineComponent({
 .columns .column .card h1{
   font-weight: bold;
   color: #faf0ca;
+  
 }
 </style>
