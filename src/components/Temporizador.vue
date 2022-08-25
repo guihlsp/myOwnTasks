@@ -5,6 +5,7 @@
             @click="iniciar" 
             :disabled="cronometroRodando"/>
             <Pause
+            @click="pausar"
             :disabled="!cronometroRodando"/>
             <Stop
             @click="finalizar" 
@@ -49,6 +50,8 @@ export default defineComponent({
         },
         pausar () {
             this.cronometroRodando = false
+            console.log(this.cronometro);
+            clearInterval(this.cronometro)
         },
         finalizar () {
             this.cronometroRodando = false
