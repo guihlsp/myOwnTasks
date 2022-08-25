@@ -6,13 +6,18 @@
                     class="column" 
                     role="form" 
                     aria-label="Formulário para criação de uma nova tarefa"
-                >
-                    <input 
-                        type="text" 
-                        class="input"
-                        placeholder="Qual tarefa deseja iniciar?"
-                        v-model="descricao"
-                    />
+                    >
+                    <p class="control has-icons-left has-icons-right">
+                        <input 
+                            type="text" 
+                            class="input"
+                            placeholder="Qual tarefa deseja iniciar?"
+                            v-model="descricao"
+                        />
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-tasks" aria-hidden="true"></i>
+                        </span>
+                    </p>
                 </div>
             </div>
             <div class="column">

@@ -16,7 +16,7 @@
                     General
                 </p>
                 <ul class="menu-list">
-                    <li><a><i class="fa fa-home" aria-hidden="true"></i>
+                    <li><a class="is-disabled"><i class="fa fa-home" aria-hidden="true"></i>
                     Dashboard</a></li>
                     <li><a><i class="fa fa-hourglass" aria-hidden="true"></i>
                     Timetracker</a></li>
