@@ -64,7 +64,8 @@ export default defineComponent({
 <style scoped>
 
 .tempo {
-    margin-left: 43%;
+    text-align: center;
+    
 }
 
 </style>

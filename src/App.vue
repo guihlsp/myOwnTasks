@@ -14,7 +14,7 @@
         :tarefa="tarefa"/>
       </div>
       <tabela/>
-      <Card>
+      <Card class="card">
         <h1 style="justify-content:center"
         >Não foi inserida nenhuma tarefa até o momento!</h1>
       </Card>
@@ -61,5 +61,8 @@ export default defineComponent({
 .lista{
   padding: 1.25rem;
 }
-
+.columns .column .card h1{
+  font-weight: bold;
+  color: #faf0ca;
+}
 </style>

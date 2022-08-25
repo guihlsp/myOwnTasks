@@ -16,17 +16,18 @@
                     General
                 </p>
                 <ul class="menu-list">
-                    <li><a>Dashboard</a></li>
-                    <li><a class="is-active">Temporizador</a></li>
-                    <li><a>Agenda</a></li>
-                </ul>
-                <p class="menu-label">
-                    Auxiliares
-                </p>
-                <ul class="menu-list">
-                    
-                    <li><a>Configurações</a></li>
-                    <li><a class ="sair">Sair</a></li>
+                    <li><a><i class="fa fa-home" aria-hidden="true"></i>
+                    Dashboard</a></li>
+                    <li><a><i class="fa fa-hourglass" aria-hidden="true"></i>
+                    Temporizador</a></li>
+                    <li><a><i class="fa fa-calendar" aria-hidden="true"></i>
+                    Agenda</a></li>
+                    <ul class="menu-botton">
+                        <li><a><i class="fa fa-sliders" aria-hidden="true"></i>
+                        Configurações</a></li>
+                        <li><a class ="sair"><i class="fa fa-power-off" aria-hidden="true"></i>
+                        Sair</a></li>
+                    </ul>
                 </ul>
             </aside>
         </section>
@@ -56,6 +57,9 @@ header {
         height: auto;
     }
 }
+.logo{
+    padding: 5%;
+}
 .logo h2{
     color: #faf0ca;
     padding: 0.5rem;
@@ -69,5 +73,9 @@ header {
 .menu-list li a {
     color: rgb(224, 178, 26);
     padding: 1rem;
+}
+
+.menu-botton{
+    margin-top: 20%;
 }
 </style>
