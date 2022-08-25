@@ -1,4 +1,4 @@
-# projetinho
+# myOwnTasks
 
 ## Project setup
 ```

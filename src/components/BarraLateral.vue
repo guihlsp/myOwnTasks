@@ -3,8 +3,8 @@
         <section class="logo">
             <h1>    
                 <a href="http://localhost:8080/#/">
-                    <img src="@/assets/logo_alura.png" 
-                        alt="Logo Alura Tracker"
+                    <img src="@/assets/myOwnTasks_2.png" 
+                        alt="Logo myOwnTasks"
                     />
                 </a>
             </h1>
@@ -19,7 +19,7 @@
                     <li><a><i class="fa fa-home" aria-hidden="true"></i>
                     Dashboard</a></li>
                     <li><a><i class="fa fa-hourglass" aria-hidden="true"></i>
-                    Temporizador</a></li>
+                    Timetracker</a></li>
                     <li><a><i class="fa fa-calendar" aria-hidden="true"></i>
                     Agenda</a></li>
                     <ul class="menu-botton">
@@ -58,7 +58,8 @@ header {
     }
 }
 .logo{
-    padding: 5%;
+    
+    width: 100%;
 }
 .logo h2{
     color: #faf0ca;
