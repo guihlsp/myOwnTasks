@@ -8,11 +8,16 @@
       <Formulario 
       @aoSalvarTarefa="salvarTarefa"/>
       <div class="lista">
+        
         <Tarefa v-for="(tarefa, index) in tarefas" 
         :key="index" 
         :tarefa="tarefa"/>
       </div>
       <tabela/>
+      <Card>
+        <h1 style="justify-content:center"
+        >Não foi inserida nenhuma tarefa até o momento!</h1>
+      </Card>
     </div>
     
   </main>
@@ -27,13 +32,15 @@ import Formulario from './components/Formulario.vue'
 import Tabela from './components/Tabela.vue'
 import Tarefa from './components/Tarefa.vue'
 import ITarefa from './interfaces/ITarefa'
+import Card from './components/Card.vue'
 
 export default defineComponent({
     name: "App",
     components: {
     BarraLateral,
     Formulario,
-    Tarefa
+    Tarefa,
+    Card
   },
   data() {
     return {
@@ -50,8 +57,9 @@ export default defineComponent({
 </script>
 
 
-<style>
+<style scoped>
 .lista{
   padding: 1.25rem;
 }
+
 </style>
