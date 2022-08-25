@@ -1,6 +1,14 @@
 <template>
     <header>
         <section class="logo">
+                <div class="botao-menu">
+                    <button class="button is-white is-outlined">
+                        <span class="icon">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </span> 
+                    </button>
+                    
+                </div>
             <h1>    
                 <a href="http://localhost:8080/#/">
                     <img src="@/assets/myOwnTasks_2.png" 
@@ -8,6 +16,7 @@
                     />
                 </a>
             </h1>
+           
             <h2> Olá, Guilherme!</h2>
         </section>
         <section class="menu-options">
@@ -57,8 +66,14 @@ header {
         height: auto;
     }
 }
+
+.logo .botao-menu{
+    display: flex;
+    justify-content: right;
+}
+
 .logo{
-    
+    height: auto;
     width: 100%;
 }
 .logo h2{
@@ -79,4 +94,5 @@ header {
 .menu-botton{
     margin-top: 20%;
 }
+
 </style>

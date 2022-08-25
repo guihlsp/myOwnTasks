@@ -1,6 +1,7 @@
 <template>
     <div class="box">
-        <div class="columns">
+        <Topo class="topo">Timetracker - Temporizador de tarefas</Topo>
+        <div class="columns is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
             <div class="column is-8">
                 <div 
                     class="column" 
@@ -34,13 +35,15 @@
 <script lang="ts">
 import  {defineComponent} from 'vue'
 import Temporizador from './Temporizador.vue'
+import Topo from './Topo.vue'
 
 export default defineComponent({
     name: 'FormularioComponent',
     emits: ['aoSalvarTarefa', 'aoDarFoco'],
     components: {
-        Temporizador
-    },
+    Temporizador,
+    Topo
+},
     data (){
         return {
             descricao: '',
@@ -67,5 +70,12 @@ export default defineComponent({
 
 </script>
 <style scoped>
-
+.box .topo {
+    text-align: left;
+    font-size: large;
+    font-weight:bolder; ;
+}
+.columns {
+    margin-top: 2%;
+}
 </style>
