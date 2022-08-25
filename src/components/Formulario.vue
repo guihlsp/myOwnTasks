@@ -13,6 +13,7 @@
                             class="input"
                             placeholder="Qual tarefa deseja iniciar?"
                             v-model="descricao"
+                            v-show="!comFoco"
                         />
                         <span class="icon is-small is-left">
                             <i class="fa fa-tasks" aria-hidden="true"></i>
@@ -36,13 +37,14 @@ import Temporizador from './Temporizador.vue'
 
 export default defineComponent({
     name: 'FormularioComponent',
-    emits: ['aoSalvarTarefa'],
+    emits: ['aoSalvarTarefa', 'aoDarFoco'],
     components: {
         Temporizador
     },
     data (){
         return {
-            descricao: ''
+            descricao: '',
+            comFoco: false
         }
     },
     methods: {
@@ -52,8 +54,15 @@ export default defineComponent({
                 descricao: this.descricao   
             })
             this.descricao = ''
+        },
+
+        darFoco () {
+            this.comFoco = true
+            this.$emit('aoDarFoco', {
+                comFoco: true
+            })
         }
-    },
+    }
 });
 
 </script>

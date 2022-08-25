@@ -6,7 +6,8 @@
                 aria-hidden="true"></i>
             </span>
             <slot></slot>
-            <Adicionar class="adicionar">Adicionar minha primeira tarefa</Adicionar>
+            <Adicionar class="adicionar">
+                Adicionar minha primeira tarefa</Adicionar>
         </div>
     </div>
 </template>
@@ -14,13 +15,14 @@
 <script lang="ts">
     import {defineComponent} from 'vue'
     import Adicionar from './buttons/Adicionar.vue'
+    import Formulario from './Formulario.vue'
 
 
     export default defineComponent({
         name: 'cardComponent',
         components: {
             Adicionar
-        }
+        } 
     })
 </script>
 
