@@ -1,8 +1,10 @@
 <template>
-    <header>
+    <header class="">
         <section class="logo">
                 <div class="botao-menu">
-                    <button class="button is-warning is-outlined">
+                    <button class="button is-warning is-outlined"
+                    @click="fecharMenu"
+                    :hidden="menuAberto">
                         <span class="icon">
                             <i class="fa fa-bars" aria-hidden="true"></i>
                         </span> 
@@ -30,8 +32,8 @@
                         Dashboard</a></li>
                         <li><a class="is-active"   ><i class="fa fa-hourglass " aria-hidden="true"></i>
                         Timetracker</a></li>
-                        <li><a><i class="fa fa-calendar" aria-hidden="true"></i>
-                        Agenda</a></li>
+                        <li><a  class="titulo"><i class="fa fa-calendar" aria-hidden="true"></i>Agenda</a>
+                        </li>
                     </ul>
                     <ul class="menu-botton">
                         <li><a><i class="fa fa-sliders" aria-hidden="true"></i>
@@ -51,7 +53,18 @@
 import { defineComponent } from "vue"
 
 export default defineComponent({
-    name: "BarraLateralComponent"
+    name: "BarraLateralComponent",
+    data (){
+        return{
+            menuAberto: true
+        }
+    },
+    methods: {
+        fecharMenu(){
+            this.menuAberto = !this.menuAberto
+            console.log(this.menuAberto)
+        }
+    },
 });
 
 </script>
@@ -101,4 +114,10 @@ header {
     color: rgb(224, 178, 26);
     padding: 1rem;
 }
+
+.menuFechado{
+    width: 20%;
+    
+}
+
 </style>

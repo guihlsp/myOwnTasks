@@ -14,7 +14,6 @@
                             class="input"
                             placeholder="Qual tarefa deseja iniciar?"
                             v-model="descricao"
-                            v-show="!comFoco"
                         />
                         <span class="icon is-small is-left">
                             <i class="fa fa-tasks" aria-hidden="true"></i>
@@ -39,7 +38,7 @@ import Topo from './Topo.vue'
 
 export default defineComponent({
     name: 'FormularioComponent',
-    emits: ['aoSalvarTarefa', 'aoDarFoco'],
+    emits: ['aoSalvarTarefa'],
     components: {
     Temporizador,
     Topo
@@ -47,7 +46,6 @@ export default defineComponent({
     data (){
         return {
             descricao: '',
-            comFoco: false
         }
     },
     methods: {
@@ -57,13 +55,6 @@ export default defineComponent({
                 descricao: this.descricao   
             })
             this.descricao = ''
-        },
-
-        darFoco () {
-            this.comFoco = true
-            this.$emit('aoDarFoco', {
-                comFoco: true
-            })
         }
     }
 });
