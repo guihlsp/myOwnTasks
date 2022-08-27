@@ -1,5 +1,5 @@
-<template>
-    <header class="menuFechado">
+<template class="">
+    <header class="">
         <div class="sidebar-menu">
             <section class="logo">
                 <div class="botoes-sidebar">
@@ -8,9 +8,7 @@
                             {{ iconeBotao }}
                         </span>
                     </button>
-                    <!-- @click="fecharMenu"
-                        :hidden="menuAberto"> -->
-                    <button class="button is-warning is-outlined botao-menu">
+                    <button class="button is-warning is-outlined botao-menu" @click="alterarMenu">
                         <span class="icon">
                             <i class="fa fa-bars" aria-hidden="true"> 
                             </i>
@@ -21,7 +19,7 @@
                 >
                     <a href="http://localhost:8080/#/"
                     >
-                        <img src="@/assets/myOwnTasks_2.png" 
+                        <img src="@/assets/imgs/myOwnTasks_2.png" 
                         alt="Logo myOwnTasks"
                         />
                     </a>
@@ -29,7 +27,7 @@
 
                 <h2 class="boas-vindas"> Olá, Guilherme!</h2>
             </section>
-            <section class="menu-options">
+            <section class="menu-opcoes">
                 <aside class="menu">
                     <p class="menu-label">
                         General
@@ -38,54 +36,54 @@
                         <ul class="menu-top">
                             <li>
                                 <a class="menu-opcao">
-                                    <i class="fa fa-home" aria-hidden="true"></i>
                                     <div class="menu-nome">
                                         <span>
                                             Dashboard
                                         </span>
                                     </div>
+                                    <i class="fa fa-home" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li>
                                 <a class="menu-opcao is-active">
-                                    <i class="fa fa-hourglass " aria-hidden="true"></i>
                                     <div class="menu-nome">
                                         <span class="menu-">
                                         Timetracker
                                         </span>
                                     </div>
+                                    <i class="fa fa-hourglass " aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li>
                                 <a class="menu-opcao">
-                                    <i class="fa fa-calendar" aria-hidden="true"></i>
                                     <div class="menu-nome">
                                         <span>
                                         Agenda
                                         </span>
                                     </div>
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
                                 </a>
                             </li>
                         </ul>
                         <ul class="menu-botton">
                             <li>
                                 <a class="menu-opcao">
-                                    <i class="fa fa-sliders" aria-hidden="true"></i>
                                     <div class="menu-nome">
                                         <span>
-                                        Configurações
+                                        Ajustes
                                         </span>
                                     </div>
+                                    <i class="fa fa-sliders" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li>
                                 <a class="sair menu-opcao">
-                                    <i class="fa fa-power-off" aria-hidden="true"></i>
                                     <div class="menu-nome">
                                         <span>
                                         Sair
                                         </span>
                                     </div>
+                                    <i class="fa fa-power-off" aria-hidden="true"></i>
                                 </a>
                             </li>
                         </ul>
@@ -100,16 +98,16 @@
 <script lang="ts">
 
 import { defineComponent } from "vue"
-import '@/assets/css/main.css'
+
 export default defineComponent({
     name: "BarraLateralComponent",
     data() {
         return {
-            menuAberto: true,
+            menuFechado: false,
             modoEscuroAtivo: false
         }
     },
-    emits: ['aoTemaAlterado'],
+    emits: ['aoTemaAlterado', 'aoMenuAlterado'],
     computed: {
         iconeBotao() {
             if (this.modoEscuroAtivo) {
@@ -119,10 +117,12 @@ export default defineComponent({
         }
     },
     methods: {
-        // fecharMenu(){
-        //     this.menuAberto = !this.menuAberto
-        //     console.log(this.menuAberto)
-        // },
+
+        alterarMenu(){
+            this.menuFechado = !this.menuFechado
+            this.$emit('aoMenuAlterado', this.menuFechado)
+            console.log(this.menuFechado)
+        },
 
         alterarTema() {
             this.modoEscuroAtivo = !this.modoEscuroAtivo
@@ -133,5 +133,13 @@ export default defineComponent({
 
 </script>
 <style scoped>
+@import '@/assets/css/main.css';
+
+.menu-opcao{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+}
 
 </style>

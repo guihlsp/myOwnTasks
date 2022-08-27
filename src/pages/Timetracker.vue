@@ -1,10 +1,12 @@
 <template>
   <main class="columns is-gapless is-multiline" 
-  :class="{ 'modo-escuro': modoEscuroAtivo}"
+  :class="{ 'modo-escuro': modoEscuroAtivo} || { 'menu-fechado': menuFechado}"
   >
-    <div class="column is-one-fifth is-two-fifths-is-mobile">
+    <div class="column is-one-fifth is-two-fifths-is-mobile" @aoMenuAlterado="trocarMenu" 
+      >
       <Barra-lateral
-      @aoTemaAlterado="trocarTema" class="container"/>
+      @aoTemaAlterado="trocarTema" 
+      class="container"/>
     </div>
       
     <div class="column is-three-quarter conteudo">
@@ -47,7 +49,8 @@ export default defineComponent({
   data() {
     return {
       tarefas: [] as ITarefa[],
-      modoEscuroAtivo: false
+      modoEscuroAtivo: false,
+      menuFechado: false
     }
   },
   computed: {
@@ -57,8 +60,11 @@ export default defineComponent({
     
   },
   methods: {
-    salvarTarefa (tarefa: ITarefa) {
-      this.tarefas.push(tarefa)
+    salvarTarefa (tarefa: ITarefa){
+      this.tarefas.push(tarefa)     
+    },
+    trocarMenu (menuFechado: boolean){
+      this.menuFechado = menuFechado
     },
     trocarTema (modoEscuroAtivo: boolean){
       this.modoEscuroAtivo = modoEscuroAtivo
@@ -66,10 +72,17 @@ export default defineComponent({
   }
 });
 
+
+
 </script>
 
 
 <style scoped>
+
+.columns{
+  overflow: auto;
+  position: relative;
+}
 .lista{
   padding: 1.25rem;
 }
@@ -80,20 +93,19 @@ export default defineComponent({
   
 }
   
-main {
-    --bg-primario:#ffff;
-    --texto-primario: #000
-}
 
-recolher-menu {
-  display: flex;
-  justify-content: space-between;
+
+main {
+  --bg-primario:#ffff;
+  --texto-primario: #000
+}
+main.menu-fechado{
+  color: red;
 }
 main.modo-escuro {
     --bg-primario:#2b2d42;
     --texto-primario: #ddd;
 }
-
 .conteudo {
   background-color: var(--bg-primario);
 }

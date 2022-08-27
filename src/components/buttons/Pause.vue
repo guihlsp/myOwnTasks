@@ -1,5 +1,5 @@
 <template>
-        <button class="button is-warning is-outlined">
+        <button class="button is-warning ">
             <span class="icon">
                 <i class="fas fa-pause"></i>
             </span>

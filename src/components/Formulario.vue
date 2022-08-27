@@ -14,6 +14,8 @@
                             class="input"
                             placeholder="Qual tarefa deseja iniciar?"
                             v-model="descricao"
+                            
+                           
                         />
                         <span class="icon is-small is-left">
                             <i class="fa fa-tasks" aria-hidden="true"></i>
@@ -36,18 +38,25 @@ import  {defineComponent} from 'vue'
 import Temporizador from './Temporizador.vue'
 import Topo from './Topo.vue'
 
+
 export default defineComponent({
     name: 'FormularioComponent',
     emits: ['aoSalvarTarefa'],
     components: {
     Temporizador,
-    Topo
-},
+    Topo,
+    
+    },
     data (){
         return {
             descricao: '',
         }
     },
+    // computed: {
+    //     validaDescricao (descricao: boolean ) {
+    //   return this.descricao === ''
+    // }
+    // },
     methods: {
         finalizarTarefa (tempoDecorrido: number) : void {
             this.$emit('aoSalvarTarefa', {

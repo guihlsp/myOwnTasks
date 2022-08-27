@@ -1,5 +1,5 @@
 <template>
-        <button class="button is-success is-outlined">
+        <button class="button is-success ">
             <span class="icon">
                 <i class="fas fa-play"></i>
             </span>

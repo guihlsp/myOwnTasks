@@ -24,7 +24,21 @@ export default defineComponent({
   @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"; 
 
   body{
-  min-height: 100vh;
+  min-height: 100%;
+  overflow: auto
+  }
+
+  @media only screen and (max-width: 768px) {
+    body{
+      height: 100%;
+      
+    }
+  }
+
+  @media only screen and (max-width: 680px) {
+    body{
+      height: 100%;
+    }
   }
 </style>
 

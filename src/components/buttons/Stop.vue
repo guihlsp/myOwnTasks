@@ -1,5 +1,5 @@
 <template>
-        <button class="button is-danger is-outlined">
+        <button class="button is-danger">
             <span class="icon">
                 <i class="fas fa-stop"></i>
             </span>
