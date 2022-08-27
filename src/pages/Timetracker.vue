@@ -98,6 +98,7 @@ export default defineComponent({
 main {
   --bg-primario:#ffff;
   --texto-primario: #000
+  --texto-secundario: #000000
 }
 main.menu-fechado{
   color: red;
@@ -105,6 +106,7 @@ main.menu-fechado{
 main.modo-escuro {
     --bg-primario:#2b2d42;
     --texto-primario: #ddd;
+    --texto-secundario: #2b2d42;
 }
 .conteudo {
   background-color: var(--bg-primario);

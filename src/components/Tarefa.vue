@@ -5,7 +5,7 @@
                 {{tarefa.descricao || "Tarefa sem descrição"}}
             </div>
             <div class="column">
-                <Cronometro :tempoEmSegundos="tarefa.duracaoEmSegundos"/>
+                <Cronometro :tempoEmSegundos="tarefa.duracaoEmSegundos" class="registro"/>
             </div>
         </div>
     </Box>
@@ -33,3 +33,10 @@ export default defineComponent({
 })
 </script>
 
+<style scoped>
+
+.registro {
+    color: var(--texto-secundario);
+    
+}
+</style>
