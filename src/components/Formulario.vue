@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <div class="box formulario">
         <Topo class="topo">Timetracker - Temporizador de tarefas</Topo>
         <div class="columns is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
             <div class="column is-8">
@@ -64,9 +64,14 @@ export default defineComponent({
 .box .topo {
     text-align: left;
     font-size: large;
-    font-weight:bolder; ;
+    font-weight:bolder;
 }
 .columns {
     margin-top: 2%;
+}
+
+.formulario {
+    color: var(--texto-primario);
+    background-color: var(--bg-primario)
 }
 </style>
