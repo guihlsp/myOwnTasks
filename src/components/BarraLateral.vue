@@ -45,7 +45,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="menu-opcao is-active">
+                                <a class="menu-opcao is-active" :style="estilo">
                                     <div class="menu-nome">
                                         <span class="menu-">
                                         Timetracker
@@ -55,7 +55,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="menu-opcao">
+                                <a class="menu-opcao" href="https://www.google.com/">
                                     <div class="menu-nome">
                                         <span>
                                         Agenda
@@ -104,7 +104,14 @@ export default defineComponent({
     data() {
         return {
             menuFechado: false,
-            modoEscuroAtivo: false
+            modoEscuroAtivo: false,
+            estilo: {
+
+                display: 'flex',
+                justifyContent: 'space-between',
+                margin: '0 auto',
+                alignItems: 'center'
+            }
         }
     },
     emits: ['aoTemaAlterado', 'aoMenuAlterado'],

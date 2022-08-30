@@ -26,8 +26,7 @@
     
   </main>
  
-</template>
-
+</template>s
 
 <script lang="ts">
 import { defineComponent } from 'vue'
@@ -72,13 +71,9 @@ export default defineComponent({
   }
 });
 
-
-
 </script>
 
-
 <style scoped>
-
 .columns{
   overflow: auto;
   position: relative;
@@ -92,8 +87,6 @@ export default defineComponent({
   box-sizing: 100%;
   
 }
-  
-
 
 main {
   --bg-primario:#ffff;
