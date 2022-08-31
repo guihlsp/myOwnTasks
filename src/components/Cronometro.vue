@@ -1,6 +1,9 @@
 <template>
     <section>
         <strong class="display">
+            <span class="material-symbols-outlined">
+                schedule
+            </span>
             {{ tempoDecorrido }}
         </strong>
     </section>
@@ -32,6 +35,8 @@ export default defineComponent({
 
 .display {
     color: var(--texto-primario);
+    display: flex;
+    justify-content: center;
     
 }
 
