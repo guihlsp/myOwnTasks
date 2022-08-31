@@ -37,7 +37,7 @@ export default defineComponent({
     color: var(--texto-primario);
     display: flex;
     justify-content: center;
-    
+
 }
 
 </style>

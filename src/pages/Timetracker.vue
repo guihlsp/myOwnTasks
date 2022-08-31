@@ -1,38 +1,20 @@
-<template>
-  <main class="columns is-gapless is-multiline" 
-  :class="{ 'modo-escuro': modoEscuroAtivo} || { 'menu-fechado': menuFechado}"
-  >
-    <div class="column is-one-fifth is-two-fifths-is-mobile" @aoMenuAlterado="trocarMenu" 
-      >
-      <Barra-lateral
-      @aoTemaAlterado="trocarTema" 
-      class="container"/>
-    </div>
-      
-    <div class="column is-three-quarter conteudo">
-      <Formulario 
-      @aoSalvarTarefa="salvarTarefa"/>
-      <div class="lista">
-        
-        <Tarefa v-for="(tarefa, index) in tarefas" 
-        :key="index" 
-        :tarefa="tarefa"/>
-      </div>
-      <tabela/>
-      <Card class="card" v-if="listaVazia">
-        <h1>Até o momento não há tarefas registradas!</h1>
-      </Card>
-    </div>
+<template>     
+  <Formulario 
+  @aoSalvarTarefa="salvarTarefa"/>
+  <div class="lista">
     
-  </main>
- 
-</template>s
+    <Tarefa v-for="(tarefa, index) in tarefas" 
+    :key="index" 
+    :tarefa="tarefa"/>
+  </div>
+  <Card class="card" v-if="listaVazia">
+    <h1>Até o momento não há tarefas registradas!</h1>
+  </Card>
+</template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import BarraLateral from '@/components/BarraLateral.vue'
 import Formulario from '@/components/Formulario.vue'
-import Tabela from '@/components/Tabela.vue'
 import Tarefa from '@/components/Tarefa.vue'
 import ITarefa from '@/interfaces/ITarefa'
 import Card from '@/components/Card.vue'
@@ -40,7 +22,6 @@ import Card from '@/components/Card.vue'
 export default defineComponent({
     name: "TimetrackerPage",
     components: {
-    BarraLateral,
     Formulario,
     Tarefa,
     Card
@@ -49,7 +30,6 @@ export default defineComponent({
     return {
       tarefas: [] as ITarefa[],
       modoEscuroAtivo: false,
-      menuFechado: false
     }
   },
   computed: {
@@ -61,12 +41,6 @@ export default defineComponent({
   methods: {
     salvarTarefa (tarefa: ITarefa){
       this.tarefas.push(tarefa)     
-    },
-    trocarMenu (menuFechado: boolean){
-      this.menuFechado = menuFechado
-    },
-    trocarTema (modoEscuroAtivo: boolean){
-      this.modoEscuroAtivo = modoEscuroAtivo
     }
   }
 });
@@ -74,34 +48,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.columns{
-  overflow: auto;
-  position: relative;
-}
-.lista{
-  padding: 1.25rem;
-}
-.columns .column .card h1{
-  font-weight: bold;
-  color: #faf0ca;
-  box-sizing: 100%;
-  
-}
-
-main {
-  --bg-primario:#ffff;
-  --texto-primario: #000
-  --texto-secundario: #000000
-}
-main.menu-fechado{
-  color: red;
-}
-main.modo-escuro {
-    --bg-primario:#2b2d42;
-    --texto-primario: #ddd;
-    --texto-secundario: #2b2d42;
-}
-.conteudo {
-  background-color: var(--bg-primario);
-}
+  .lista{
+    padding: 1.25rem;
+  }
 </style>
