@@ -15,8 +15,6 @@
 <script lang="ts">
     import {defineComponent} from 'vue'
     import Adicionar from './buttons/Adicionar.vue'
-    import Formulario from './Formulario.vue'
-
 
     export default defineComponent({
         name: 'cardComponent',
