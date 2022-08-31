@@ -12,6 +12,9 @@
             :disabled="!cronometroRodando"/>
         </div>
         <div class="tempo">
+            <span class="material-symbols-outlined">
+                schedule
+            </span>
             <Cronometro :tempoEmSegundos="tempoEmSegundos"/>
         </div>
     </div>
@@ -67,8 +70,8 @@ export default defineComponent({
 <style scoped>
 
 .tempo {
-    text-align: center;
-    
+    display: flex;
+    justify-content: center;
 }
 
 </style>
