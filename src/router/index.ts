@@ -8,6 +8,7 @@ import Projetos from '@/views/Projetos.vue'
 
 const rotas: RouteRecordRaw[] = [{
     path: '/',
+    alias: '/dashboard',
     name: 'Dashboard',
     component: Dashboard
 },

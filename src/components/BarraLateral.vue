@@ -57,7 +57,7 @@
                                  class="menu-opcao {{ classeAtivo }}" @click="ativarMenu" :style="estilo">
                                     <div class="menu-nome">
                                         <span>
-                                        Timetracker
+                                        Temporizador
                                         </span>
                                     </div>
                                     <i class="fa fa-hourglass " aria-hidden="true"></i>

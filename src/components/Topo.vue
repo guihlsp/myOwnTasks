@@ -1,6 +1,6 @@
 <template>
     <div class="titulo">
-        <h1><slot></slot></h1>
+        <h1 class="title"><slot></slot></h1>
     </div>
 </template>
 
@@ -19,7 +19,8 @@ export default defineComponent ({
 
 h1{
     font-weight: bold ;
-
+    font-size: large;
+    margin-bottom: 5%;
 }
 
 </style>

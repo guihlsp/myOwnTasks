@@ -1,6 +1,6 @@
 <template>
     <section class="projetos">
-        <h1 class="title">Projetos</h1>
+        <Topo>Projetos</Topo>
         <form @submit.prevent="salvar">
             <div class="field">
                 <label for="nomeDoProjeto" class="label">
@@ -40,27 +40,29 @@
 
 import { defineComponent } from 'vue'
 import IProjeto from '@/interfaces/IProjeto'
+import Topo from '@/components/Topo.vue';
 
 export default defineComponent({
     name: "ProjetosPage",
-    data () {
+    data() {
         return {
-            nomeDoProjeto: '',
+            nomeDoProjeto: "",
             projetos: [] as IProjeto[]
         };
     },
     methods: {
-        salvar () {
+        salvar() {
             const projeto: IProjeto = {
                 nome: this.nomeDoProjeto,
                 id: new Date().toISOString()
-            }
-            this.projetos.push(projeto)
-            this.nomeDoProjeto = ''
+            };
+            this.projetos.push(projeto);
+            this.nomeDoProjeto = "";
         }
+    },
+    components: {
+        Topo 
     }
-
-
 })
 
 </script>
