@@ -1,6 +1,6 @@
 <template>     
     <div>
-        Agenda
+        Projetos
     </div>
 </template>
   
@@ -9,7 +9,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-    name: "AgendaPage",
+    name: "ProjetosPage",
 })
   
 </script>

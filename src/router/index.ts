@@ -3,11 +3,18 @@ import Timetracker from '@/views/Timetracker.vue'
 import Dashboard from '@/views/Dashboard.vue'
 import Configuracoes from '@/views/Configuracoes.vue'
 import Agenda from '@/views/Agenda.vue'
+import Projetos from '@/views/Projetos.vue'
+
 
 const rotas: RouteRecordRaw[] = [{
-    path: '/dashboard',
+    path: '/',
     name: 'Dashboard',
     component: Dashboard
+},
+{
+    path: '/projetos',
+    name: 'Projetos',
+    component: Projetos
 },
 {
     path: '/temporizador',

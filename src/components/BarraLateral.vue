@@ -15,14 +15,11 @@
                         </span>
                     </button>
                 </div>
-                <h1 class="imagem-logo"
-                >
-                    <a href="http://localhost:8080/#/"
-                    >
+                <h1 class="imagem-logo">
+                    <router-link to="/">
                         <img src="@/assets/imgs/myOwnTasks_2.png" 
-                        alt="Logo myOwnTasks"
-                        />
-                    </a>
+                        alt="Logo myOwnTasks"/>
+                    </router-link>
                 </h1>
 
                 <h2 class="boas-vindas"> Olá, Guilherme!</h2>
@@ -35,13 +32,24 @@
                     <ul class="menu-list">
                         <ul class="menu-top">
                             <li>
-                                <router-link to="/dashboard" class="menu-opcao">
+                                <router-link to="/" class="menu-opcao">
                                     <div class="menu-nome">
                                         <span>
                                             Dashboard
                                         </span>
                                     </div>
                                     <i class="fa fa-home" aria-hidden="true"></i>
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link to="/projetos" 
+                                 class="menu-opcao" :style="estilo">
+                                    <div class="menu-nome">
+                                        <span>
+                                        Projetos
+                                        </span>
+                                    </div>
+                                    <i class="fa fa-briefcase " aria-hidden="true"></i>
                                 </router-link>
                             </li>
                             <li>
