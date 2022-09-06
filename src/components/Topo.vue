@@ -18,13 +18,14 @@ export default defineComponent ({
 <style>
 
 h1{
-    
     font-weight: bold ;
     font-size: large;
-    margin-bottom: 5%;
+    background-color: #35393d;
+    
 }
 .display {
     color: var(--texto-primario);
     padding: 1.5rem;
+    color: #faf0ca;
 }
 </style>
