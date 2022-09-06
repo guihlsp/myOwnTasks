@@ -30,7 +30,6 @@ export default defineComponent ({
 
 <style>
 
-
 .display {
     color: var(--texto-primario);
     padding: 1.5rem;
