@@ -1,5 +1,5 @@
 <template>
-    <div class="is-relative is-align-items-center is-justify-content-space-between">
+    <section>
         <div class="buttons has-addons is-centered">
             <Play
             @click="iniciar" 
@@ -14,7 +14,7 @@
         <div class="tempo">
             <Cronometro :tempoEmSegundos="tempoEmSegundos"/>
         </div>
-    </div>
+    </section>
 </template>
 
 <script lang="ts">
@@ -68,7 +68,6 @@ export default defineComponent({
 
 .tempo {
     text-align: center;
-    
 }
 
 </style>

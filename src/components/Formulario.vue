@@ -1,8 +1,7 @@
 <template>
     <div class="box formulario">
-        <Topo class="topo">Temporizador</Topo>
         <div class="columns is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
-            <div class="column is-8">
+            <div class="column is-7">
                 <div 
                     class="column" 
                     role="form" 
@@ -36,15 +35,15 @@
 <script lang="ts">
 import  {defineComponent} from 'vue'
 import Temporizador from './Temporizador.vue'
-import Topo from './Topo.vue'
+
 
 
 export default defineComponent({
     name: 'FormularioComponent',
     emits: ['aoSalvarTarefa'],
     components: {
-    Temporizador,
-    Topo,
+    Temporizador
+    
     
     },
     data (){
@@ -70,17 +69,11 @@ export default defineComponent({
 
 </script>
 <style scoped>
-.box .topo {
-    text-align: left;
-    font-size: large;
-    font-weight:bolder;
-}
-.columns {
-    margin-top: 2%;
-}
 
 .formulario {
     color: var(--texto-primario);
-    background-color: var(--bg-primario)
+    background-color: var(--bg-primario);
+    padding: 2rem;
+    
 }
 </style>

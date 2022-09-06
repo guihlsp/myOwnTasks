@@ -31,7 +31,6 @@
         background: #35393d;
     }
     .card-content{
-        padding: 2rem;
         text-align: center;
         font-size: large;
         font-weight:bolder;
