@@ -30,23 +30,11 @@ export default defineComponent ({
 
 <style>
 
-h1{
-    font-weight: bold ;
-    font-size: large;
-    background-color: #35393d;
-    
-}
+
 .display {
     color: var(--texto-primario);
     padding: 1.5rem;
     color: #faf0ca;
-}
-
-.topo{
-    display: flex;
-    background-color: #35393d;
-    align-items:center;
-    justify-content: space-between;
 }
 
 .perfil{
