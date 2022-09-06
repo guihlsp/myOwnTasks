@@ -13,8 +13,13 @@
                 />
             </div>
             <div class="field">
-                <button class="button" type="submit">
+                <button class="button is-success" type="submit">
+                    <span class="icon">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    <span>
                     Salvar
+                    </span>
                 </button>
             </div>
         </form>

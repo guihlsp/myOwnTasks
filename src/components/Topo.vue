@@ -4,10 +4,15 @@
             <h1 class="title display"><slot></slot></h1>
         </div>
         <div class="perfil">
-            <figure class="image is-64x64">
+            <figure class="image is-64x64 foto">
                 <img class="is-rounded" src="@/assets/imgs/perfil.jpg">
-                <div class="dropdown is-active"></div>
+                <div class="button is-rounded is-white is-hover is-small seta">
+                    <span class="icon is-small material-symbols-outlined">
+                    expand_circle_down
+                    </span>
+                </div>
             </figure>
+            
         </div>
     </section>
 </template>
@@ -45,6 +50,15 @@ h1{
 }
 
 .perfil{
-    margin-right: 2%;
+    margin-right: 5%;
+}
+
+.foto {
+    position:relative;
+    display:flex;
+    justify-content: center;
+}
+.seta{
+    margin: 80% 0 0 -80%;
 }
 </style>
