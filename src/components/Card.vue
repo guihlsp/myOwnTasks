@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div class="card-content">
-            <span class="icon">
+            <span class="icon has-text-warning">
                 <i class="fa fa-exclamation-triangle fa-4x" 
                 aria-hidden="true"></i>
             </span>
@@ -34,9 +34,10 @@
         text-align: center;
         font-size: large;
         font-weight:bolder;
+        display: block;
+        justify-content: space-between;
     }
     .icon{
-        color: #faf0ca;
         margin-bottom: 2%;
     }
     .adicionar{

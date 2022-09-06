@@ -1,6 +1,6 @@
 <template>
     <Topo>Projetos</Topo>
-    <section class="projetos">
+    <section class="box projetos">
         <form @submit.prevent="salvar">
             <div class="field">
                 <label for="nomeDoProjeto" class="label">
@@ -18,6 +18,8 @@
                 </button>
             </div>
         </form>
+    </section>
+    <section class="projetos">
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth tabela">
             <thead>
                 <tr>
@@ -31,7 +33,6 @@
                     <td>{{projeto.nome}}</td>
                 </tr>
             </tbody>
-
         </table>
     </section>
 </template>
@@ -70,10 +71,12 @@ export default defineComponent({
 <style scoped>
     .projetos{
         padding: 1.25rem;
+        color: var(--texto-primario);
+        background-color: var(--bg-primario);
     }
     
     .tabela{
-        margin-top: 5rem;        
+        margin-top: 5rem;   
     }
     .id-column{
         width: 20%;
