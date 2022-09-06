@@ -32,13 +32,13 @@ export default defineComponent({
       }
     },
     methods: {
-    trocarMenu (menuFechado: boolean){
-      this.menuFechado = menuFechado
-    },
-    trocarTema (modoEscuroAtivo: boolean){
-      this.modoEscuroAtivo = modoEscuroAtivo
+      trocarMenu (menuFechado: boolean){
+        this.menuFechado = menuFechado
+      },
+      trocarTema (modoEscuroAtivo: boolean){
+        this.modoEscuroAtivo = modoEscuroAtivo
+      }
     }
-  }
 })
 
 </script>
@@ -46,10 +46,17 @@ export default defineComponent({
 
 <style>
   @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"; 
-
+  
   body{
   min-height: 100%;
   overflow: auto
+  }
+
+  @media only screen and (max-width: 768px) {
+    body{
+      height: 100%;
+      
+    }
   }
 
   @media only screen and (max-width: 768px) {

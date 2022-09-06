@@ -1,6 +1,6 @@
 <template>
+    <Topo>Projetos</Topo>
     <section class="projetos">
-        <Topo>Projetos</Topo>
         <form @submit.prevent="salvar">
             <div class="field">
                 <label for="nomeDoProjeto" class="label">
@@ -18,16 +18,16 @@
                 </button>
             </div>
         </form>
-        <table class="table is-fullwidth">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth tabela">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th align="center" class="id-column">ID</th>
                     <th>Nome</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="projeto in projetos" :key="projeto.id">
-                    <td>{{projeto.id}}</td>
+                    <td class="id-column">{{projeto.id}}</td>
                     <td>{{projeto.nome}}</td>
                 </tr>
             </tbody>
@@ -68,6 +68,19 @@ export default defineComponent({
 </script>
   
 <style scoped>
+    .projetos{
+        padding: 1.25rem;
+    }
     
+    .tabela{
+        margin-top: 5rem;        
+    }
+    .id-column{
+        width: 20%;
+        text-align: center;
+    }
+    .label{
+        color: var(--texto-primario);
+    }
 </style>
   
