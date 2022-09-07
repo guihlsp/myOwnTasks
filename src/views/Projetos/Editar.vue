@@ -33,8 +33,19 @@ import Topo from '@/components/Topo.vue'
 
 export default defineComponent({
     name: "EditarProjetos",
+    props: {
+        id: {
+            type: String
+        }
+    },
     components: {
         Topo
+    },
+    mounted() {
+        if(this.id) {
+            const projeto = this.store.state.projetos.find(proj => proj.id == this.id)
+            this.nomeDoProjeto = projeto?.nome || ''
+        }
     },
     data() {
         return {
@@ -43,10 +54,16 @@ export default defineComponent({
     },
     methods: {
         salvar() {
-            this.store.commit('ADICIONA_PROJETO', this.nomeDoProjeto)
+
+            this.store.commit('EDITA_PROJETO', {
+                id: this.id,
+                nome: this.nomeDoProjeto
+            })
             this.nomeDoProjeto = "";
             this.$router.push('/projetos')
         }
+        
+    
     },
     setup () {
         const store = useStore()
