@@ -4,6 +4,8 @@ import Dashboard from '@/views/Dashboard.vue'
 import Configuracoes from '@/views/Configuracoes.vue'
 import Agenda from '@/views/Agenda.vue'
 import Projetos from '@/views/Projetos.vue'
+import Adicionar from '@/views/Projetos/Adicionar.vue'
+import Editar from '@/views/Projetos/Editar.vue'
 
 
 const rotas: RouteRecordRaw[] = [{
@@ -16,6 +18,16 @@ const rotas: RouteRecordRaw[] = [{
     path: '/projetos',
     name: 'Projetos',
     component: Projetos
+},
+{
+    path: '/projetos/adicionar',
+    name: 'Adicionar projeto',
+    component: Adicionar
+},
+{
+    path: '/projetos/:id',
+    name: 'Editar projeto',
+    component: Editar
 },
 {
     path: '/temporizador',
