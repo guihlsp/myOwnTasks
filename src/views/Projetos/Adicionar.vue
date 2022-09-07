@@ -21,6 +21,12 @@
                     Salvar
                     </span>
                 </button>
+                <router-link to="/projetos/" class="button is-danger cancelar">
+                    <span class="icon is-small">
+                        <i class="fas fa-times"></i>
+                    </span>
+                    <span>Cancelar</span>
+                </router-link>
             </div>
         </form>
     </section>
@@ -59,13 +65,16 @@ export default defineComponent({
 </script>
   
 <style scoped>
-    .projetos{
+     .projetos{
         padding: 1.25rem;
         color: var(--texto-primario);
         background-color: var(--bg-primario);
     }
     .label{
         color: var(--texto-primario);
+    }
+    .cancelar{
+        margin-left: 2%;
     }
 </style>
   
