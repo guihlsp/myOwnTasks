@@ -9,12 +9,12 @@
                 <span>Adicionar projeto</span>
             </router-link>
         </div>
-        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth tabela">
+        <table class="table is-bordered  is-narrow is-fullwidth tabela">
             <thead>
                 <tr>
-                    <th align="center" class="id-column">ID</th>
-                    <th>Nome</th>
-                    <th align="center" class="acoes-column">Ações</th>
+                    <th align="center" class="id-column cabecalho">ID</th>
+                    <th class="cabecalho">Nome</th>
+                    <th align="center" class="acoes-column cabecalho">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -92,6 +92,14 @@ export default defineComponent({
     .acoes{
         display: flex;
         justify-content: space-around;
+    }
+    tr{
+        color: var(--texto-primario);
+        background-color: var(--bg-primario);
+    }
+    .cabecalho{
+        color: var(--texto-primario);
+        
     }
 </style>
   
