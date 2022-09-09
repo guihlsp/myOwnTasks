@@ -28,7 +28,7 @@
                                     <i class="fas fa-pencil-alt"></i>
                                 </span>
                             </router-link>
-                            <div class="button is-danger is-small deletar">
+                            <div class="button is-danger is-small deletar" @click="excluir(projeto.id)">
                                 <span class="icon is-small">
                                     <i class="fas fa-trash"></i>
                                 </span>
@@ -45,16 +45,24 @@
 import { useStore } from '@/store';
 import { computed, defineComponent } from 'vue'
 import Topo from '@/components/Topo.vue';
+import { EXCLUI_PROJETO } from '@/store/tipo-mutacoes';
 
 export default defineComponent({
     name: "ProjetosLista",
     components: {
         Topo 
     },
+    methods: {
+        excluir(id: string) {
+            this.store.commit(EXCLUI_PROJETO, id)
+        
+        }
+    },
     setup () {
         const store = useStore()
         return {
-            projetos: computed(() => store.state.projetos)
+            projetos: computed(() => store.state.projetos),
+            store
         }
     }
 })

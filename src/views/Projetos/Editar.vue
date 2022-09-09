@@ -36,6 +36,8 @@
 import { useStore } from '@/store';
 import { defineComponent } from 'vue'
 import Topo from '@/components/Topo.vue'
+import { ALTERA_PROJETO } from '@/store/tipo-mutacoes';
+
 
 export default defineComponent({
     name: "EditarProjetos",
@@ -61,7 +63,7 @@ export default defineComponent({
     methods: {
         salvar() {
 
-            this.store.commit('EDITA_PROJETO', {
+            this.store.commit(ALTERA_PROJETO, {
                 id: this.id,
                 nome: this.nomeDoProjeto
             })

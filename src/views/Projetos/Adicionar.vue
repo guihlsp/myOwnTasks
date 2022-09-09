@@ -36,6 +36,7 @@
 import { useStore } from '@/store';
 import { defineComponent } from 'vue'
 import Topo from '@/components/Topo.vue'
+import { ADICIONA_PROJETO } from '@/store/tipo-mutacoes';
 
 export default defineComponent({
     name: "AdicionarProjetos",
@@ -49,7 +50,7 @@ export default defineComponent({
     },
     methods: {
         salvar() {
-            this.store.commit('ADICIONA_PROJETO', this.nomeDoProjeto)
+            this.store.commit(ADICIONA_PROJETO, this.nomeDoProjeto)
             this.nomeDoProjeto = "";
             this.$router.push('/projetos')
         }
