@@ -79,7 +79,7 @@
                                 <router-link to="/configuracoes" class="menu-opcao">
                                     <div class="menu-nome">
                                         <span>
-                                        Ajustes
+                                        Configurações
                                         </span>
                                     </div>
                                     <i class="fa fa-sliders" aria-hidden="true"></i>
