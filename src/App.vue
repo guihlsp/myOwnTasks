@@ -19,7 +19,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import BarraLateral from './components/BarraLateral.vue';
-import Notificacoes from './components/notificacoes.vue'
+import Notificacoes from './components/Notificacoes.vue'
 
 export default defineComponent({
     name: "App",
