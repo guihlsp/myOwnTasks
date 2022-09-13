@@ -50,7 +50,6 @@ export default defineComponent({
         },
         pausar () {
             this.cronometroRodando = false
-            console.log(this.cronometro);
             clearInterval(this.cronometro)
         },
         finalizar () {
