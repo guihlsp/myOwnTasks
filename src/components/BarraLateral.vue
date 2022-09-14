@@ -8,12 +8,7 @@
                             {{ iconeBotao }}
                         </span>
                     </button>
-                    <button class="button is-warning is-outlined botao-menu" @click="alterarMenu">
-                        <span class="icon">
-                            <i class="fa fa-bars" aria-hidden="true"> 
-                            </i>
-                        </span>
-                    </button>
+                    
                 </div>
                 <h1 class="imagem-logo">
                     <router-link to="/">
@@ -124,7 +119,7 @@ export default defineComponent({
             }
         }
     },
-    emits: ['aoTemaAlterado', 'aoMenuAlterado', 'aoMenuAtivado'],
+    emits: ['aoTemaAlterado', 'aoMenuAtivado'],
     computed: {
         iconeBotao() {
             if (this.modoEscuroAtivo) {
@@ -145,13 +140,7 @@ export default defineComponent({
             this.telaAtual = !this.telaAtual
             this.$emit('aoMenuAtivado', this.telaAtual)
         },
-
-        alterarMenu(){
-            this.menuFechado = !this.menuFechado
-            this.$emit('aoMenuAlterado', this.menuFechado)
-            console.log(this.menuFechado)
-        },
-
+        
         alterarTema() {
             this.modoEscuroAtivo = !this.modoEscuroAtivo
             this.$emit('aoTemaAlterado', this.modoEscuroAtivo)

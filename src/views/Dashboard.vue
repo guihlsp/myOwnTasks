@@ -65,7 +65,9 @@ export default defineComponent({
   
 <style scoped>
    .is-ancestor{
-    padding: 3%;
+    padding: 1.2rem;
+    max-width:99%;
+    height: 100%;
    } 
 
    .background {

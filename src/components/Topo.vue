@@ -1,7 +1,15 @@
 <template>
     <section class="topo">
         <div class="titulo">
-            <h1 class="title display"><slot></slot></h1>
+            <h1 class="title display">
+                <button class="button is-warning is-outlined botao-menu">
+                        <span class="icon">
+                            <i class="fa fa-bars" aria-hidden="true"> 
+                            </i>
+                        </span>
+                </button>
+                <slot></slot>
+            </h1>
         </div>
         <div class="perfil">
             <figure class="image is-64x64 foto">
@@ -28,12 +36,12 @@ export default defineComponent ({
 
 </script>
 
-<style>
+<style scoped>
 
 .display {
-    color: var(--texto-primario);
     padding: 1.5rem;
     color: #faf0ca;
+    
 }
 
 .perfil{
@@ -48,4 +56,5 @@ export default defineComponent ({
 .seta{
     margin: 80% 0 0 -80%;
 }
+
 </style>
