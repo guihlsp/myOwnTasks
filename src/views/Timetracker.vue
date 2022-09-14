@@ -3,12 +3,12 @@
   <Formulario @aoSalvarTarefa="salvarTarefa"/>
   <div class="lista">
     <Tarefa v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa">
-      <div class="button is-warning is-small">
+      <div class="button is-warning ">
         <span class="icon is-small">   
             <i class="fas fa-pencil-alt"></i>
         </span>
       </div>
-      <div class="button is-danger is-small" @click="excluir(tarefa.idTarefa)">
+      <div class="button is-danger " @click="excluir(tarefa.idTarefa)">
         <span class="icon is-small">
             <i class="fas fa-trash"></i>
         </span>
