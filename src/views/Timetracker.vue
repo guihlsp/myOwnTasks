@@ -2,9 +2,18 @@
   <Topo class="topo">Temporizador</Topo>
   <Formulario @aoSalvarTarefa="salvarTarefa"/>
   <div class="lista">
-    <Tarefa v-for="(tarefa, index) in tarefas" 
-      :key="index" 
-      :tarefa="tarefa"/>
+    <Tarefa v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa">
+      <div class="button is-warning is-small">
+        <span class="icon is-small">   
+            <i class="fas fa-pencil-alt"></i>
+        </span>
+      </div>
+      <div class="button is-danger is-small" @click="excluir(tarefa.idTarefa)">
+        <span class="icon is-small">
+            <i class="fas fa-trash"></i>
+        </span>
+      </div>
+    </Tarefa>
   </div>
   <Card class="card" v-if="listaVazia">
     <h1>Até o momento não há tarefas registradas!</h1>
@@ -19,7 +28,7 @@ import ITarefa from '@/interfaces/ITarefa'
 import Card from '@/components/Card.vue'
 import Topo from '@/components/Topo.vue'
 import { useStore } from '@/store'
-import { ADICIONA_TAREFA } from '@/store/tipo-mutacoes'
+import { ADICIONA_TAREFA, EXCLUI_TAREFA } from '@/store/tipo-mutacoes'
 
 export default defineComponent({
     name: "TimetrackerPage",
@@ -38,18 +47,20 @@ export default defineComponent({
     listaVazia () : boolean {
       return this.tarefas.length === 0
     }
-    
   },
   methods: {
     salvarTarefa (tarefa: ITarefa){
       this.store.commit(ADICIONA_TAREFA, tarefa)
-    }
+    },
+    excluir (idTarefa: number) {
+      this.store.commit(EXCLUI_TAREFA, idTarefa)
+    },
   },
   setup () {
       const store = useStore()
       return {
-          tarefas: computed(() => store.state.tarefas),
-          store
+        tarefas: computed(() => store.state.tarefas),
+        store
       }
   }
 

@@ -12,16 +12,7 @@
                 <Cronometro :tempoEmSegundos="tarefa.duracaoEmSegundos" class="registro"/>
             </div>
             <div class="acoes column is-1">
-                <div class="button is-warning is-small">
-                    <span class="icon is-small">   
-                        <i class="fas fa-pencil-alt"></i>
-                    </span>
-                </div>
-                <div class="button is-danger is-small">
-                    <span class="icon is-small">
-                        <i class="fas fa-trash"></i>
-                    </span>
-                </div>
+                <slot></slot>
             </div>
         </div>
     </Box>
@@ -30,9 +21,10 @@
 <script lang="ts">
 
 import ITarefa from '@/interfaces/ITarefa';
-import { defineComponent, PropType } from 'vue';
+import { computed, defineComponent, PropType } from 'vue';
 import Cronometro from './Cronometro.vue';
 import Box from './Box.vue'
+import { useStore } from '@/store'
 
 export default defineComponent({
     name: "TarefaComponent",
@@ -43,14 +35,21 @@ export default defineComponent({
     props:{
         tarefa: {
             type: Object as PropType<ITarefa>,
-            required: true
+            required: true,
         }
     },
     computed: {
         nenhumProjeto () : boolean {
             return this.tarefa.projeto == null 
         }
-    }
+    },
+    setup () {
+      const store = useStore()
+      return {
+          tarefas: computed(() => store.state.tarefas),
+          store
+      }
+  }
 })
 </script>
 

@@ -34,17 +34,16 @@ export const store = createStore<Estado>({
         },
         [ADICIONA_TAREFA](state, tarefa: ITarefa) {
             state.tarefas.push(tarefa)
-        }
-      
+        },
+        [EXCLUI_TAREFA](state, idTarefa: number) {
+            state.tarefas = state.tarefas.filter(taref => taref.idTarefa != idTarefa)
+        },
     }
-      // [ALTERA_TAREFA](state, tarefa: ITarefa) {
-        //     const index = state.tarefas.findIndex(proj => proj.id == projeto.id)
-        //     state.tarefas[index] = tarefa
-        // },
-        // [EXCLUI_TAREFA](state, tarefa: ITarefa) {
-        //     state.tarefas = state.tarefas.filter(proj => proj.id != id)
-        // },
-  
+    // [ALTERA_TAREFA](state, tarefa: ITarefa) {
+    //       const index = state.tarefas.findIndex(tarefa => tarefa.id == tarefa.id)
+    //       state.tarefas[index] = tarefa
+    // }
+
 })
 
 export function useStore(): Store<Estado> {

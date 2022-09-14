@@ -51,6 +51,8 @@ import Temporizador from './Temporizador.vue'
 import { useStore } from 'vuex'
 import { key } from '@/store'
 
+
+
 export default defineComponent({
     name: 'FormularioComponent',
     emits: ['aoSalvarTarefa'],
@@ -60,7 +62,8 @@ export default defineComponent({
     data (){
         return {
             descricao: '',
-            idProjeto: ''
+            idProjeto: '',
+            idTarefa:''
         }
     },
     methods: {
@@ -68,7 +71,8 @@ export default defineComponent({
             this.$emit('aoSalvarTarefa', {
                 duracaoEmSegundos: tempoDecorrido,
                 descricao: this.descricao,
-                projeto: this.projetos.find(proj => proj.id == this.idProjeto)
+                projeto: this.projetos.find(proj => proj.id == this.idProjeto),
+                idTarefa: Math.random()
             })
             this.descricao = ''
         }
@@ -76,9 +80,11 @@ export default defineComponent({
     setup () {
         const store = useStore(key)
         return {
-            projetos: computed(() => store.state.projetos)
+            projetos: computed(() => store.state.projetos),
+            tarefas: computed(() => store.state.tarefas)
         };
-    }
+    },
+    
 });
 
 </script>
