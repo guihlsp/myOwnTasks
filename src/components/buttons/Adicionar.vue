@@ -1,5 +1,5 @@
 <template>
-        <button class="button is-success" @click="$emit('cliqueNoAdicionar')">
+        <button class="button is-success">
             <span class="icon">
                 <i class="fas fa-plus"></i>
             </span>
@@ -15,13 +15,5 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
     name: 'AdicionarBtn',
-    emits:['cliqueNoAdicionar'],
-    methods: {
-
-        darFoco: function(){
-            this.$emit('cliqueNoAdicionar', 0)
-        }
-    }
-    
 })
 </script>
