@@ -53,10 +53,15 @@ export default defineComponent({
             clearInterval(this.cronometro)
         },
         finalizar () {
-            this.cronometroRodando = false
-            clearInterval(this.cronometro)
-            this.$emit('aoTemporizadorFinalizado', this.tempoEmSegundos)
-            this.tempoEmSegundos = 0
+            if (this.tempoEmSegundos <= 0){
+                return
+            }
+            else{
+                this.cronometroRodando = false
+                clearInterval(this.cronometro)
+                this.$emit('aoTemporizadorFinalizado', this.tempoEmSegundos)
+                this.tempoEmSegundos = 0
+            }
         }        
     }
 });

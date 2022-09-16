@@ -3,7 +3,7 @@ import IProjeto from "@/interfaces/IProjeto";
 import ITarefa from "@/interfaces/ITarefa";
 import { InjectionKey } from "vue";
 import { createStore, Store, useStore as vuexUseStore } from "vuex";
-import { ADICIONA_PROJETO, ALTERA_PROJETO, EXCLUI_PROJETO, ADICIONA_TAREFA, ALTERA_TAREFA, EXCLUI_TAREFA, NOTIFICAR} from "./tipo-mutacoes";
+import { ADICIONA_PROJETO, ALTERA_PROJETO, EXCLUI_PROJETO, ADICIONA_TAREFA, ALTERA_TAREFA, EXCLUI_TAREFA, NOTIFICAR, FECHA_NOTIFICACAO} from "./tipo-mutacoes";
 
 interface Estado {
     projetos: IProjeto[],
@@ -47,7 +47,10 @@ export const store = createStore<Estado>({
 
             setTimeout(() => {
                 state.notificacoes = state.notificacoes.filter(notificacao => notificacao.id != novaNotificacao.id)
-            },3000)
+            },2500)
+        },
+        [FECHA_NOTIFICACAO](state, id: number){
+            state.notificacoes = state.notificacoes.filter(notifi => notifi.id != id)
         }
     }
     // [ALTERA_TAREFA](state, tarefa: ITarefa) {
