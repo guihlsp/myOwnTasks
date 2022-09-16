@@ -36,7 +36,8 @@
 import { useStore } from '@/store';
 import { defineComponent } from 'vue'
 import Topo from '@/components/Topo.vue'
-import { ALTERA_PROJETO } from '@/store/tipo-mutacoes';
+import { ALTERA_PROJETO, NOTIFICAR } from '@/store/tipo-mutacoes';
+import { TipoNotificacao } from '@/interfaces/INotifcacao';
 
 
 export default defineComponent({
@@ -68,6 +69,11 @@ export default defineComponent({
                 nome: this.nomeDoProjeto
             })
             this.nomeDoProjeto = "";
+            this.store.commit(NOTIFICAR, {
+                titulo: 'Sucesso',
+                texto: 'Projeto alterado com sucesso!',
+                tipo: TipoNotificacao.SUCESSO
+            })
             this.$router.push('/projetos')
         }
         

@@ -45,7 +45,8 @@
 import { useStore } from '@/store';
 import { computed, defineComponent } from 'vue'
 import Topo from '@/components/Topo.vue';
-import { EXCLUI_PROJETO } from '@/store/tipo-mutacoes';
+import { EXCLUI_PROJETO, NOTIFICAR } from '@/store/tipo-mutacoes';
+import { TipoNotificacao } from '@/interfaces/INotifcacao';
 
 export default defineComponent({
     name: "ProjetosLista",
@@ -55,6 +56,11 @@ export default defineComponent({
     methods: {
         excluir(id: string) {
             this.store.commit(EXCLUI_PROJETO, id)
+            this.store.commit(NOTIFICAR, {
+                titulo: 'Sucesso',
+                texto: 'Projeto excluído com sucesso!',
+                tipo: TipoNotificacao.SUCESSO
+            })
         
         }
     },
