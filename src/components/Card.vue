@@ -20,7 +20,7 @@
         name: 'cardComponent',
         components: {
             Adicionar
-        } 
+        }
     })
 </script>
 

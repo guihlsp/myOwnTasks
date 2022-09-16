@@ -8,12 +8,11 @@
                     >
                     <p class="control has-icons-left has-icons-right">
                         <input 
+                            id="nomeTarefa"
                             type="text" 
                             class="input input-form"
                             placeholder="Qual tarefa deseja iniciar?"
-                            v-model="descricao"
-                            
-                           
+                            v-model="descricao"                
                         />
                         <span class="icon is-small is-left">
                             <i class="fa fa-tasks" aria-hidden="true"></i>
@@ -38,7 +37,7 @@
             <div class="column">
                 <div class="column" >
                     <Temporizador 
-                    @aoTemporizadorFinalizado= "finalizarTarefa" aoTemporizadorPausado=''/>
+                    @ao-temporizador-finalizado= "finalizarTarefa" aoTemporizadorPausado=''/>
                 </div>
             </div>
         </div>
@@ -57,7 +56,7 @@ export default defineComponent({
     name: 'FormularioComponent',
     emits: ['aoSalvarTarefa'],
     components: {
-    Temporizador
+    Temporizador,
     },
     data (){
         return {

@@ -54,7 +54,7 @@ export default defineComponent({
     },
     excluir (idTarefa: number) {
       this.store.commit(EXCLUI_TAREFA, idTarefa)
-    },
+    }
   },
   setup () {
       const store = useStore()
@@ -63,7 +63,6 @@ export default defineComponent({
         store
       }
   }
-
 });
 
 </script>
