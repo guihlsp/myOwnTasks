@@ -28,7 +28,8 @@ import ITarefa from '@/interfaces/ITarefa'
 import Card from '@/components/Card.vue'
 import Topo from '@/components/Topo.vue'
 import { useStore } from '@/store'
-import { ADICIONA_TAREFA, EXCLUI_TAREFA } from '@/store/tipo-mutacoes'
+import { ADICIONA_TAREFA, EXCLUI_TAREFA, NOTIFICAR } from '@/store/tipo-mutacoes'
+import { TipoNotificacao } from '@/interfaces/INotifcacao'
 
 export default defineComponent({
     name: "TimetrackerPage",
@@ -50,10 +51,29 @@ export default defineComponent({
   },
   methods: {
     salvarTarefa (tarefa: ITarefa){
+      if (tarefa.descricao == ""){
+        this.store.commit(ADICIONA_TAREFA, tarefa)
+        this.store.commit(NOTIFICAR, {
+          titulo: 'Atenção',
+          texto: 'A tarefa não possui descrição!',
+          tipo: TipoNotificacao.ATENCAO
+        })
+      }else{
       this.store.commit(ADICIONA_TAREFA, tarefa)
+      this.store.commit(NOTIFICAR, {
+        titulo: 'Sucesso',
+        texto: 'Tarefa adicionada com sucesso!',
+        tipo: TipoNotificacao.SUCESSO
+      })
+      }
     },
     excluir (idTarefa: number) {
       this.store.commit(EXCLUI_TAREFA, idTarefa)
+      this.store.commit(NOTIFICAR, {
+        titulo: 'Sucesso',
+        texto: 'Tarefa excluída com sucesso!',
+        tipo: TipoNotificacao.SUCESSO
+      })
     }
   },
   setup () {
