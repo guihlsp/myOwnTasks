@@ -54,7 +54,7 @@ export default defineComponent({
             if (this.nomeDoProjeto == ""){
                 this.store.commit(NOTIFICAR, {
                     titulo: 'Falha',
-                    texto: 'Você deve adicionar um nome ao projeto!',
+                    texto: 'Você deve inserir um nome ao projeto!',
                     tipo: TipoNotificacao.FALHA
                 })
             } else{

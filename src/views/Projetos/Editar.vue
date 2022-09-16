@@ -63,18 +63,25 @@ export default defineComponent({
     },
     methods: {
         salvar() {
-
-            this.store.commit(ALTERA_PROJETO, {
-                id: this.id,
-                nome: this.nomeDoProjeto
-            })
-            this.nomeDoProjeto = "";
-            this.store.commit(NOTIFICAR, {
-                titulo: 'Sucesso',
-                texto: 'Projeto alterado com sucesso!',
-                tipo: TipoNotificacao.SUCESSO
-            })
-            this.$router.push('/projetos')
+            if (this.nomeDoProjeto == ""){
+                this.store.commit(NOTIFICAR, {
+                    titulo: 'Falha',
+                    texto: 'Você deve inserir um nome ao projeto!',
+                    tipo: TipoNotificacao.FALHA
+                })
+            } else{
+                this.store.commit(ALTERA_PROJETO, {
+                    id: this.id,
+                    nome: this.nomeDoProjeto
+                })
+                this.nomeDoProjeto = "";
+                this.store.commit(NOTIFICAR, {
+                    titulo: 'Sucesso',
+                    texto: 'Projeto alterado com sucesso!',
+                    tipo: TipoNotificacao.SUCESSO
+                })
+                this.$router.push('/projetos')
+            }
         }
         
     
