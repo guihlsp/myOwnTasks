@@ -6,7 +6,7 @@
                 <div class="tile">
                     <div class="tile is-parent is-vertical">
                         <article class="tile is-child notification background">
-                            <p class="title">Veja 4 razões para utilizar o myOwnTasks</p>
+                            <p class="title">Algumas razões para utilizar o myOwnTasks:</p>
                             <p class="subtitle">Uma boa gestão do tempo e produtividade ajuda a criar o equilíbrio
                                 perfeito, enquanto a má administração leva a um estresse excessivo.</p>
                         </article>

@@ -3,11 +3,11 @@
   <Formulario @aoSalvarTarefa="salvarTarefa" />
   <div class="lista">
     <Tarefa v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa">
-      <div class="button is-warning ">
+      <!-- <div class="button is-warning ">
         <span class="icon is-small">
           <i class="fas fa-pencil-alt"></i>
         </span>
-      </div>
+      </div> -->
       <div class="button is-danger " @click="excluir(tarefa.idTarefa)">
         <span class="icon is-small">
           <i class="fas fa-trash"></i>
@@ -30,6 +30,7 @@ import Topo from '@/components/Topo.vue'
 import { useStore } from '@/store'
 import { ADICIONA_TAREFA, EXCLUI_TAREFA, NOTIFICAR } from '@/store/tipo-mutacoes'
 import { TipoNotificacao } from '@/interfaces/INotifcacao'
+import useNotificador from '@/hooks/notificador'
 
 export default defineComponent({
   name: "TimetrackerPage",
@@ -53,34 +54,25 @@ export default defineComponent({
     salvarTarefa(tarefa: ITarefa) {
       if (tarefa.descricao == "") {
         this.store.commit(ADICIONA_TAREFA, tarefa)
-        this.store.commit(NOTIFICAR, {
-          titulo: 'Atenção',
-          texto: 'A tarefa não possui descrição!',
-          tipo: TipoNotificacao.ATENCAO
-        })
+        this.notificar(TipoNotificacao.ATENCAO, 'Atenção', 'A tarefa não possui descrição!')
+        
       } else {
         this.store.commit(ADICIONA_TAREFA, tarefa)
-        this.store.commit(NOTIFICAR, {
-          titulo: 'Sucesso',
-          texto: 'Tarefa adicionada com sucesso!',
-          tipo: TipoNotificacao.SUCESSO
-        })
+        this.notificar(TipoNotificacao.SUCESSO, 'Sucesso', 'Tarefa adicionada com sucesso!')
       }
     },
     excluir(idTarefa: number) {
       this.store.commit(EXCLUI_TAREFA, idTarefa)
-      this.store.commit(NOTIFICAR, {
-        titulo: 'Sucesso',
-        texto: 'Tarefa excluída com sucesso!',
-        tipo: TipoNotificacao.SUCESSO
-      })
+      this.notificar(TipoNotificacao.SUCESSO, 'Sucesso', 'Tarefa excluída com sucesso!')
     }
   },
   setup() {
     const store = useStore()
+    const { notificar } = useNotificador()
     return {
       tarefas: computed(() => store.state.tarefas),
-      store
+      store,
+      notificar
     }
   }
 });
