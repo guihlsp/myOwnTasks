@@ -59,20 +59,16 @@ export default defineComponent({
   }
   body{
     min-height: 100vh;
-    overflow:hidden;
+    overflow:auto
   }
 
+ 
   @media only screen and (max-width: 768px) {
     body{
       height: 100%;
-      
     }
-  }
-
-  @media only screen and (max-width: 768px) {
-    body{
-      height: 100%;
-      
+    #lateralBar{
+    max-height: 5vh;
     }
   }
 
@@ -82,10 +78,15 @@ export default defineComponent({
     }
   }
 
+  @media only screen and (min-width: 766px) {
+    body{
+      height: 100%;
+    }
+    #lateralBar{
+    min-height: 100vh;
+    }
+  }
 
-#lateralBar{
-  min-height: 100vh;
-}
 .columns .column .card h1{
   font-weight: bold;
   color: #faf0ca;

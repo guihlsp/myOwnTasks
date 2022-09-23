@@ -17,6 +17,7 @@
   </div>
   <Card class="card" v-if="listaVazia">
     <h1>Até o momento não há tarefas registradas!</h1>
+    <h2>Para registrar uma tarefa é bem simples! <br/> Insira o nome da tarefa no campo acima, selecione o projeto caso possua cadastrado, e em seguida clique em Play para iniciar o cronômetro. <br/> Em seguida poderá pausar, ou finalizar a contagem!</h2>
   </Card>
 </template>
 
@@ -82,5 +83,9 @@ export default defineComponent({
 <style scoped>
 .lista {
   padding: 1.2rem;
+}
+h2 {
+  margin-top: 20px;
+  color: white;
 }
 </style>

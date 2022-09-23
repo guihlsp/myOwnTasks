@@ -6,6 +6,7 @@
                 aria-hidden="true"></i>
             </span>
             <slot></slot>
+            <span></span>
             <!-- <Adicionar class="adicionar">
                 Adicionar minha primeira tarefa</Adicionar> -->
         </div>
