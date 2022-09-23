@@ -2,23 +2,23 @@
     <section class="topo">
         <div class="titulo">
             <h1 class="title display">
-                <button class="button is-warning is-outlined botao-menu">
+                <!-- <button class="button is-warning is-outlined botao-menu">
                         <span class="icon">
                             <i class="fa fa-bars" aria-hidden="true"> 
                             </i>
                         </span>
-                </button>
+                </button> -->
                 <slot></slot>
             </h1>
         </div>
         <div class="perfil">
             <figure class="image is-64x64 foto">
                 <img class="is-rounded" src="@/assets/imgs/perfil.jpg">
-                <div class="button is-rounded is-white is-hover is-small seta">
+                <!-- <div class="button is-rounded is-white is-hover is-small seta">
                     <span class="icon is-small material-symbols-outlined">
                     expand_circle_down
                     </span>
-                </div>
+                </div> -->
             </figure>
             
         </div>

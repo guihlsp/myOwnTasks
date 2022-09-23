@@ -58,7 +58,7 @@
                                     <i class="fa fa-hourglass " aria-hidden="true"></i>
                                 </router-link>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <router-link to="/agenda" class="menu-opcao" href="">
                                     <div class="menu-nome">
                                         <span>
@@ -67,10 +67,10 @@
                                     </div>
                                     <i class="fa fa-calendar" aria-hidden="true"></i>
                                 </router-link>
-                            </li>
+                            </li> -->
                         </ul>
                         <ul class="menu-botton">
-                            <li>
+                            <!-- <li>
                                 <router-link to="/configuracoes" class="menu-opcao">
                                     <div class="menu-nome">
                                         <span>
@@ -89,7 +89,7 @@
                                     </div>
                                     <i class="fa fa-power-off" aria-hidden="true"></i>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </ul>
                 </aside>

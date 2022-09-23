@@ -6,8 +6,8 @@
                 aria-hidden="true"></i>
             </span>
             <slot></slot>
-            <Adicionar class="adicionar">
-                Adicionar minha primeira tarefa</Adicionar>
+            <!-- <Adicionar class="adicionar">
+                Adicionar minha primeira tarefa</Adicionar> -->
         </div>
     </div>
 </template>
@@ -19,7 +19,7 @@
     export default defineComponent({
         name: 'cardComponent',
         components: {
-            Adicionar
+            // Adicionar
         }
     })
 </script>
