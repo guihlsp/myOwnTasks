@@ -78,7 +78,7 @@ export default defineComponent({
 
 .columns{
   overflow: auto;
-  position: relative;
+  
 }
 .columns .column .card h1{
   font-weight: bold;
@@ -89,12 +89,10 @@ export default defineComponent({
 
 main {
   --bg-primario:#ffff;
-  --texto-primario: #000
-  --texto-secundario: #000000
+  --texto-primario: #000;
+  --texto-secundario: #000000;
 }
-main.menu-fechado{
-  color: red;
-}
+
 main.modo-escuro {
     --bg-primario:#2b2d42;
     --texto-primario: #ddd;

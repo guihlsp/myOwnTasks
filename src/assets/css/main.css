@@ -2,7 +2,7 @@
 header {
     padding: 0.8rem;
     background: #35393d;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     overflow: visible;
 }

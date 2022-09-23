@@ -58,7 +58,7 @@ export default defineComponent({
 .registro {
     color: var(--texto-secundario);
     
-}
+}   
 .tarefa{
     display: flex;
     align-items: center;
