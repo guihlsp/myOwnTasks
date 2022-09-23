@@ -1,16 +1,16 @@
 <template>
   <Topo class="topo">Temporizador</Topo>
-  <Formulario @aoSalvarTarefa="salvarTarefa"/>
+  <Formulario @aoSalvarTarefa="salvarTarefa" />
   <div class="lista">
     <Tarefa v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa">
       <div class="button is-warning ">
-        <span class="icon is-small">   
-            <i class="fas fa-pencil-alt"></i>
+        <span class="icon is-small">
+          <i class="fas fa-pencil-alt"></i>
         </span>
       </div>
       <div class="button is-danger " @click="excluir(tarefa.idTarefa)">
         <span class="icon is-small">
-            <i class="fas fa-trash"></i>
+          <i class="fas fa-trash"></i>
         </span>
       </div>
     </Tarefa>
@@ -32,8 +32,8 @@ import { ADICIONA_TAREFA, EXCLUI_TAREFA, NOTIFICAR } from '@/store/tipo-mutacoes
 import { TipoNotificacao } from '@/interfaces/INotifcacao'
 
 export default defineComponent({
-    name: "TimetrackerPage",
-    components: {
+  name: "TimetrackerPage",
+  components: {
     Formulario,
     Tarefa,
     Card,
@@ -45,29 +45,29 @@ export default defineComponent({
     }
   },
   computed: {
-    listaVazia () : boolean {
+    listaVazia(): boolean {
       return this.tarefas.length === 0
     }
   },
   methods: {
-    salvarTarefa (tarefa: ITarefa){
-      if (tarefa.descricao == ""){
+    salvarTarefa(tarefa: ITarefa) {
+      if (tarefa.descricao == "") {
         this.store.commit(ADICIONA_TAREFA, tarefa)
         this.store.commit(NOTIFICAR, {
           titulo: 'Atenção',
           texto: 'A tarefa não possui descrição!',
           tipo: TipoNotificacao.ATENCAO
         })
-      }else{
-      this.store.commit(ADICIONA_TAREFA, tarefa)
-      this.store.commit(NOTIFICAR, {
-        titulo: 'Sucesso',
-        texto: 'Tarefa adicionada com sucesso!',
-        tipo: TipoNotificacao.SUCESSO
-      })
+      } else {
+        this.store.commit(ADICIONA_TAREFA, tarefa)
+        this.store.commit(NOTIFICAR, {
+          titulo: 'Sucesso',
+          texto: 'Tarefa adicionada com sucesso!',
+          tipo: TipoNotificacao.SUCESSO
+        })
       }
     },
-    excluir (idTarefa: number) {
+    excluir(idTarefa: number) {
       this.store.commit(EXCLUI_TAREFA, idTarefa)
       this.store.commit(NOTIFICAR, {
         titulo: 'Sucesso',
@@ -76,19 +76,19 @@ export default defineComponent({
       })
     }
   },
-  setup () {
-      const store = useStore()
-      return {
-        tarefas: computed(() => store.state.tarefas),
-        store
-      }
+  setup() {
+    const store = useStore()
+    return {
+      tarefas: computed(() => store.state.tarefas),
+      store
+    }
   }
 });
 
 </script>
 
 <style scoped>
-  .lista{
-    padding: 1.2rem;
-  }
+.lista {
+  padding: 1.2rem;
+}
 </style>

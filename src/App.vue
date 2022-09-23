@@ -1,12 +1,13 @@
 <template>
-  <main class="columns is-gapless is-multiline" 
+  <main class="columns  is-gapless is-multiline" id="pai" 
   :class="{ 'modo-escuro': modoEscuroAtivo} || { 'menu-fechado': menuFechado}"
   >
-    <div class="column is-one-fifth is-two-fifths-is-mobile" @aoMenuAlterado="trocarMenu" 
+    <div class="column lateral-menu is-one-fifth is-two-fifths-is-mobile" @aoMenuAlterado="trocarMenu" 
       >
       <Barra-lateral
       @aoTemaAlterado="trocarTema" 
-      class="container"/>
+      class="container"
+      id="lateralBar"/>
     </div>
     <div class="column is-three-quarter conteudo">
       <Notificacoes />
@@ -48,12 +49,17 @@ export default defineComponent({
 
 <style>
   @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
-   
-  
-  
+
+  html {
+    height: 100vh;
+    overflow-y:auto;
+  }
+  header {
+    height: 100%;
+  }
   body{
-  height: 100%;
-  overflow: auto
+    min-height: 100vh;
+    overflow:hidden;
   }
 
   @media only screen and (max-width: 768px) {
@@ -76,9 +82,9 @@ export default defineComponent({
     }
   }
 
-.columns{
-  overflow: auto;
-  
+
+#lateralBar{
+  min-height: 100vh;
 }
 .columns .column .card h1{
   font-weight: bold;

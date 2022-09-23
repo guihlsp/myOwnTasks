@@ -51,7 +51,7 @@ import { TipoNotificacao } from '@/interfaces/INotifcacao';
 export default defineComponent({
     name: "ProjetosLista",
     components: {
-        Topo 
+        Topo
     },
     methods: {
         excluir(id: string) {
@@ -61,10 +61,10 @@ export default defineComponent({
                 texto: 'Projeto excluído com sucesso!',
                 tipo: TipoNotificacao.SUCESSO
             })
-        
+
         }
     },
-    setup () {
+    setup() {
         const store = useStore()
         return {
             projetos: computed(() => store.state.projetos),
@@ -76,36 +76,42 @@ export default defineComponent({
 </script>
   
 <style scoped>
-    .projetos{
-        padding: 1.25rem;
-        color: var(--texto-primario);
-        background-color: var(--bg-primario);
-    }
-    
-    .tabela{
-        margin-top: 2rem;
-    }
-    .id-column{
-        width: 20%;
-        text-align: center;
-    }
-    .adicionar-projeto {
-        padding: 1%;   
-    }
-    .acoes-column{
-        width: 8%;
-    }
-    .acoes{
-        display: flex;
-        justify-content: space-around;
-    }
-    tr{
-        color: var(--texto-primario);
-        background-color: var(--bg-primario);
-    }
-    .cabecalho{
-        color: var(--texto-primario);
-        
-    }
+.projetos {
+    padding: 1.25rem;
+    color: var(--texto-primario);
+    background-color: var(--bg-primario);
+}
+
+.tabela {
+    margin-top: 2rem;
+}
+
+.id-column {
+    width: 20%;
+    text-align: center;
+}
+
+.adicionar-projeto {
+    padding: 1%;
+}
+
+.acoes-column {
+    width: 8%;
+}
+
+.acoes {
+    display: flex;
+    justify-content: space-around;
+}
+
+tr {
+    color: var(--texto-primario);
+    background-color: var(--bg-primario);
+}
+
+.cabecalho {
+    color: var(--texto-primario);
+
+}
 </style>
   

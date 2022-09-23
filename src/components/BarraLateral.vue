@@ -8,12 +8,11 @@
                             {{ iconeBotao }}
                         </span>
                     </button>
-                    
+
                 </div>
                 <h1 class="imagem-logo">
                     <router-link to="/">
-                        <img src="@/assets/imgs/myOwnTasks_2.png" 
-                        alt="Logo myOwnTasks"/>
+                        <img src="@/assets/imgs/myOwnTasks_2.png" alt="Logo myOwnTasks" />
                     </router-link>
                 </h1>
 
@@ -37,22 +36,21 @@
                                 </router-link>
                             </li>
                             <li>
-                                <router-link to="/projetos" 
-                                 class="menu-opcao" :style="estilo">
+                                <router-link to="/projetos" class="menu-opcao" :style="estilo">
                                     <div class="menu-nome">
                                         <span>
-                                        Projetos
+                                            Projetos
                                         </span>
                                     </div>
                                     <i class="fa fa-briefcase " aria-hidden="true"></i>
                                 </router-link>
                             </li>
                             <li>
-                                <router-link to="/temporizador" 
-                                 class="menu-opcao {{ classeAtivo }}" @click="ativarMenu" :style="estilo">
+                                <router-link to="/temporizador" class="menu-opcao {{ classeAtivo }}" @click="ativarMenu"
+                                    :style="estilo">
                                     <div class="menu-nome">
                                         <span>
-                                        Temporizador
+                                            Temporizador
                                         </span>
                                     </div>
                                     <i class="fa fa-hourglass " aria-hidden="true"></i>
@@ -127,20 +125,20 @@ export default defineComponent({
             }
             return 'dark_mode'
         },
-        classeAtivo(){
-            if (this.telaAtual){
-                return  'is-active'
+        classeAtivo() {
+            if (this.telaAtual) {
+                return 'is-active'
             }
             return ''
         }
     },
     methods: {
 
-        ativarMenu(){
+        ativarMenu() {
             this.telaAtual = !this.telaAtual
             this.$emit('aoMenuAtivado', this.telaAtual)
         },
-        
+
         alterarTema() {
             this.modoEscuroAtivo = !this.modoEscuroAtivo
             this.$emit('aoTemaAlterado', this.modoEscuroAtivo)
@@ -152,11 +150,10 @@ export default defineComponent({
 <style scoped>
 @import '@/assets/css/main.css';
 
-.menu-opcao{
+.menu-opcao {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
     align-items: center;
 }
-
 </style>

@@ -20,41 +20,40 @@
                     </span>
                 </div> -->
             </figure>
-            
+
         </div>
     </section>
 </template>
 
 <script lang="ts">
 
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 
 
-export default defineComponent ({
+export default defineComponent({
     name: 'TopoComponent',
 })
 
 </script>
 
 <style scoped>
-
 .display {
     padding: 1.5rem;
     color: #faf0ca;
-    
+
 }
 
-.perfil{
+.perfil {
     margin-right: 5%;
 }
 
 .foto {
-    position:relative;
-    display:flex;
+    position: relative;
+    display: flex;
     justify-content: center;
 }
-.seta{
+
+.seta {
     margin: 80% 0 0 -80%;
 }
-
 </style>
