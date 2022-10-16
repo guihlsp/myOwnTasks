@@ -3,7 +3,10 @@ import IProjeto from "@/interfaces/IProjeto";
 import ITarefa from "@/interfaces/ITarefa";
 import { InjectionKey } from "vue";
 import { createStore, Store, useStore as vuexUseStore } from "vuex";
-import { ADICIONA_PROJETO, ALTERA_PROJETO, EXCLUI_PROJETO, ADICIONA_TAREFA, ALTERA_TAREFA, EXCLUI_TAREFA, NOTIFICAR, FECHA_NOTIFICACAO} from "./tipo-mutacoes";
+import { OBTER_PROJETOS } from "./tipo-acoes";
+import { ADICIONA_PROJETO, ALTERA_PROJETO, EXCLUI_PROJETO, ADICIONA_TAREFA, ALTERA_TAREFA, EXCLUI_TAREFA, NOTIFICAR, FECHA_NOTIFICACAO, DEFINIR_PROJETOS} from "./tipo-mutacoes";
+import http from "@/http"
+
 
 interface Estado {
     projetos: IProjeto[],
@@ -28,13 +31,20 @@ export const store = createStore<Estado>({
             state.projetos.push(projeto)
             // window.localStorage.setItem('projetos', JSON.parse(projeto.nome));
         },
+
         [ALTERA_PROJETO](state, projeto: IProjeto) {
             const index = state.projetos.findIndex(proj => proj.id == projeto.id)
             state.projetos[index] = projeto
         },
+
         [EXCLUI_PROJETO](state, id: string) {
             state.projetos = state.projetos.filter(proj => proj.id != id)
         },
+
+        [DEFINIR_PROJETOS](state, projetos: IProjeto[]) {
+            state.projetos = projetos
+        },
+
         [ADICIONA_TAREFA](state, tarefa: ITarefa) {
             state.tarefas.push(tarefa)
         },
@@ -51,6 +61,12 @@ export const store = createStore<Estado>({
         },
         [FECHA_NOTIFICACAO](state, id: number){
             state.notificacoes = state.notificacoes.filter(notifi => notifi.id != id)
+        }
+    },
+    actions: {
+        [OBTER_PROJETOS]({ commit }) {
+            http.get('projetos')
+            .then(resposta => commit(DEFINIR_PROJETOS, resposta.data))
         }
     }
     // [ALTERA_TAREFA](state, tarefa: ITarefa) {

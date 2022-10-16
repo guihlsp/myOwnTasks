@@ -47,6 +47,7 @@ import { computed, defineComponent } from 'vue'
 import Topo from '@/components/Topo.vue';
 import { EXCLUI_PROJETO, NOTIFICAR } from '@/store/tipo-mutacoes';
 import { TipoNotificacao } from '@/interfaces/INotifcacao';
+import { OBTER_PROJETOS } from '@/store/tipo-acoes';
 
 export default defineComponent({
     name: "ProjetosLista",
@@ -66,6 +67,8 @@ export default defineComponent({
     },
     setup() {
         const store = useStore()
+        store.dispatch(OBTER_PROJETOS)
+        
         return {
             projetos: computed(() => store.state.projetos),
             store
