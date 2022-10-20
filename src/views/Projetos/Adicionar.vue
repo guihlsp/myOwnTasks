@@ -36,7 +36,7 @@
 import { useStore } from '@/store';
 import { defineComponent } from 'vue'
 import Topo from '@/components/Topo.vue'
-import { ADICIONA_PROJETO } from '@/store/tipo-mutacoes';
+import { CADASTRAR_PROJETO } from '@/store/tipo-acoes';
 import { TipoNotificacao } from '@/interfaces/INotifcacao';
 import useNotificador from '@/hooks/notificador'
 
@@ -55,9 +55,11 @@ export default defineComponent({
             if (this.nomeDoProjeto == ""){
                 this.notificar(TipoNotificacao.FALHA, 'Erro', 'Você deve inserir um nome ao projeto!')
             } else{
-                this.store.commit(ADICIONA_PROJETO, this.nomeDoProjeto)
-                this.notificar(TipoNotificacao.SUCESSO, 'Sucesso', 'Projeto adicionado com sucesso!')
-                this.$router.push('/projetos')
+                this.store.dispatch(CADASTRAR_PROJETO, this.nomeDoProjeto)
+                .then(() => {
+                    this.notificar(TipoNotificacao.SUCESSO, 'Sucesso', 'Projeto adicionado com sucesso!')
+                    this.$router.push('/projetos')
+                })
             }
         },
     },

@@ -36,8 +36,9 @@
 import { useStore } from '@/store';
 import { defineComponent } from 'vue'
 import Topo from '@/components/Topo.vue'
-import { ALTERA_PROJETO, NOTIFICAR } from '@/store/tipo-mutacoes';
+import { NOTIFICAR } from '@/store/tipo-mutacoes';
 import { TipoNotificacao } from '@/interfaces/INotifcacao';
+import { ALTERAR_PROJETO } from '@/store/tipo-acoes';
 
 
 export default defineComponent({
@@ -70,7 +71,7 @@ export default defineComponent({
                     tipo: TipoNotificacao.FALHA
                 })
             } else{
-                this.store.commit(ALTERA_PROJETO, {
+                this.store.dispatch(ALTERAR_PROJETO, {
                     id: this.id,
                     nome: this.nomeDoProjeto
                 })

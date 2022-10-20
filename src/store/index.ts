@@ -1,10 +1,10 @@
-import INotificacao, { TipoNotificacao } from "@/interfaces/INotifcacao";
+import INotificacao from "@/interfaces/INotifcacao";
 import IProjeto from "@/interfaces/IProjeto";
 import ITarefa from "@/interfaces/ITarefa";
 import { InjectionKey } from "vue";
 import { createStore, Store, useStore as vuexUseStore } from "vuex";
-import { OBTER_PROJETOS } from "./tipo-acoes";
-import { ADICIONA_PROJETO, ALTERA_PROJETO, EXCLUI_PROJETO, ADICIONA_TAREFA, ALTERA_TAREFA, EXCLUI_TAREFA, NOTIFICAR, FECHA_NOTIFICACAO, DEFINIR_PROJETOS} from "./tipo-mutacoes";
+import { ALTERAR_PROJETO, CADASTRAR_PROJETO, EXCLUIR_PROJETO, OBTER_PROJETOS } from "./tipo-acoes";
+import { ADICIONA_TAREFA, EXCLUI_TAREFA, NOTIFICAR, FECHA_NOTIFICACAO, DEFINIR_PROJETOS, EXCLUI_PROJETO} from "./tipo-mutacoes";
 import http from "@/http"
 
 
@@ -23,24 +23,9 @@ export const store = createStore<Estado>({
         notificacoes: []
     },
     mutations: {
-        [ADICIONA_PROJETO](state, nomeDoProjeto: string) {
-            const projeto = {
-                id: new Date().toISOString(),
-                nome: nomeDoProjeto
-            } as IProjeto
-            state.projetos.push(projeto)
-            // window.localStorage.setItem('projetos', JSON.parse(projeto.nome));
-        },
-
-        [ALTERA_PROJETO](state, projeto: IProjeto) {
-            const index = state.projetos.findIndex(proj => proj.id == projeto.id)
-            state.projetos[index] = projeto
-        },
-
         [EXCLUI_PROJETO](state, id: string) {
             state.projetos = state.projetos.filter(proj => proj.id != id)
         },
-
         [DEFINIR_PROJETOS](state, projetos: IProjeto[]) {
             state.projetos = projetos
         },
@@ -67,13 +52,21 @@ export const store = createStore<Estado>({
         [OBTER_PROJETOS]({ commit }) {
             http.get('projetos')
             .then(resposta => commit(DEFINIR_PROJETOS, resposta.data))
-        }
+        },
+        [CADASTRAR_PROJETO](contexto, nomeDoProjeto: string) {
+            return http.post('/projetos', {
+                nome: nomeDoProjeto
+            })
+        },
+        [ALTERAR_PROJETO](contexto, projeto: IProjeto) {
+            return http.put(`/projetos/${projeto.id}`, projeto)
+        },
+        [EXCLUIR_PROJETO]({commit}, id: string) {
+            return http.delete(`/projetos/${id}`)
+                .then(() => commit(EXCLUI_PROJETO, id))
+        },
     }
-    // [ALTERA_TAREFA](state, tarefa: ITarefa) {
-    //       const index = state.tarefas.findIndex(tarefa => tarefa.id == tarefa.id)
-    //       state.tarefas[index] = tarefa
-    // }
-
+    
 })
 
 export function useStore(): Store<Estado> {
