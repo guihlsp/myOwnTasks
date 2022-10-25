@@ -46,7 +46,7 @@
                                 </router-link>
                             </li>
                             <li>
-                                <router-link to="/temporizador" class="menu-opcao {{ classeAtivo }}" @click="ativarMenu"
+                                <router-link to="/tarefas" class="menu-opcao {{ classeAtivo }}" @click="ativarMenu"
                                     :style="estilo">
                                     <div class="menu-nome">
                                         <span>

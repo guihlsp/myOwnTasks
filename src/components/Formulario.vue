@@ -62,7 +62,7 @@ export default defineComponent({
         return {
             descricao: '',
             idProjeto: '',
-            idTarefa:''
+            id:''
         }
     },
     methods: {
@@ -71,7 +71,7 @@ export default defineComponent({
                 duracaoEmSegundos: tempoDecorrido,
                 descricao: this.descricao,
                 projeto: this.projetos.find(proj => proj.id == this.idProjeto),
-                idTarefa: Math.random()
+                id: Math.random()
             })
             this.descricao = ''
         }
@@ -79,8 +79,8 @@ export default defineComponent({
     setup () {
         const store = useStore(key)
         return {
-            projetos: computed(() => store.state.projetos),
-            tarefas: computed(() => store.state.tarefas)
+            projetos: computed(() => store.state.projeto.projetos),
+            tarefas: computed(() => store.state.tarefa.tarefas)
         };
     },
     

@@ -1,6 +1,6 @@
 <template>
     <Box>
-        <div class="columns tarefa">
+        <div class="columns tarefa" @click="tarefaClicada">
             <div class="column is-5 coluna">
                 {{tarefa.descricao || "Tarefa sem descrição"}}
             </div>
@@ -25,9 +25,11 @@ import { computed, defineComponent, PropType } from 'vue';
 import Cronometro from './Cronometro.vue';
 import Box from './Box.vue'
 import { useStore } from '@/store'
+import { OBTER_TAREFAS } from '@/store/tipo-acoes';
 
 export default defineComponent({
     name: "TarefaComponent",
+    emits: ['aoTarefaClicada'],
     components:{
         Cronometro,
         Box
@@ -38,6 +40,11 @@ export default defineComponent({
             required: true,
         }
     },
+    methods: {
+        tarefaClicada () : void {
+            this.$emit('aoTarefaClicada', this.tarefa)
+        }
+    },
     computed: {
         nenhumProjeto () : boolean {
             return this.tarefa.projeto == null 
@@ -46,7 +53,7 @@ export default defineComponent({
     setup () {
       const store = useStore()
       return {
-          tarefas: computed(() => store.state.tarefas),
+          tarefas: computed(() => store.state.tarefa.tarefas),
           store
       }
   }

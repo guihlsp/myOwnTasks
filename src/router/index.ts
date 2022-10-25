@@ -38,7 +38,7 @@ const rotas: RouteRecordRaw[] = [{
     ]
 },
 {
-    path: '/temporizador',
+    path: '/tarefas',
     name: 'Timetracker',
     component: Timetracker
 },
