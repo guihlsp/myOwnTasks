@@ -1,32 +1,35 @@
 <template>
-  <div class="modal" :class="{ 'is-active': tarefaSelecionada }" v-if="tarefaSelecionada">
-    <div class="modal-background">
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">Modal title</p>
-          <button id="close" class="delete" aria-label="close" @click="fecharModal()"></button>
-        </header>
-        <section class="modal-card-body">
-          <div class="column" role="form" aria-label="Formulário para criação de uma nova tarefa">
-            <p class="control has-icons-left has-icons-right">
-              <input id="nomeTarefa" type="text" class="input input-form"
-                v-model="tarefaSelecionada.descricao" />
-              <span class="icon is-small is-left">
-                <i class="fa fa-tasks" aria-hidden="true"></i>
-              </span>
-            </p>
-          </div>
-        </section>
-        <footer class="modal-card-foot">
-          <button id="save" class="button is-success" @click="alterarTarefa()">Save changes</button>
-          <button id="cancel" class="button" @click="fecharModal()">Cancel</button>
-        </footer>
+  <Modal :mostrar="tarefaSelecionada != null">
+    <template v-slot:cabecalho>
+      <p class="modal-card-title">Alterar tarefa</p>
+      <button id="close" class="delete" aria-label="close" @click="fecharModal()"></button>
+    </template>
+    <template v-slot:corpo>
+      <div class="column" role="form" aria-label="Formulário para criação de uma nova tarefa">
+        <p class="control has-icons-left has-icons-right">
+          <input id="nomeTarefa" type="text" class="input input-form" v-model="tarefaSelecionada.descricao" />
+          <span class="icon is-small is-left">
+            <i class="fa fa-tasks" aria-hidden="true"></i>
+          </span>
+        </p>
       </div>
-    </div>
-  </div>
+    </template>
+    <template v-slot:rodape>
+      <button id="save" class="button is-success" @click="alterarTarefa()">Salvar</button>
+      <button id="cancel" class="button is-danger" @click="fecharModal()">Cancelar</button>
+    </template>
+  </Modal>
   <Topo class="topo">Temporizador</Topo>
   <Formulario @aoSalvarTarefa="salvarTarefa" />
   <div class="lista">
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" type="text" placeholder="Pesquisar" v-model="filtro">
+        <span class="icon is-small is-left">
+          <i class="fas fa-search"></i>
+        </span>
+      </p>
+    </div>
     <Tarefa v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa">
       <div class="button is-danger " @click="excluir(tarefa.id)">
         <span class="icon is-small">
@@ -49,11 +52,12 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, ref, watchEffect } from 'vue'
 import Formulario from '@/components/Formulario.vue'
 import Tarefa from '@/components/Tarefa.vue'
 import ITarefa from '@/interfaces/ITarefa'
 import Card from '@/components/Card.vue'
+import Modal from '@/components/Modal.vue'
 import Topo from '@/components/Topo.vue'
 import { useStore } from '@/store'
 import { TipoNotificacao } from '@/interfaces/INotifcacao'
@@ -66,7 +70,8 @@ export default defineComponent({
     Formulario,
     Tarefa,
     Card,
-    Topo
+    Topo,
+    Modal
   },
   data() {
     return {
@@ -107,7 +112,10 @@ export default defineComponent({
     },
     alterarTarefa() {
       this.store.dispatch(ALTERAR_TAREFA, this.tarefaSelecionada)
-        .then(() => this.fecharModal())
+        .then(() => {
+          this.fecharModal()
+          this.notificar(TipoNotificacao.SUCESSO, 'Sucesso', 'Tarefa alterada com sucesso!')
+        })
     }
 
   },
@@ -115,11 +123,27 @@ export default defineComponent({
     const store = useStore()
     store.dispatch(OBTER_PROJETOS)
     store.dispatch(OBTER_TAREFAS)
+
+
+    const filtro = ref("");
+
+    // const tarefas = computed(() => 
+    //   store.state.tarefa.tarefas.filter(
+    //     (t) => !filtro.value || t.descricao.includes(filtro.value)
+    //   )
+    // );
+
+    watchEffect(() => {
+      store.dispatch(OBTER_TAREFAS, filtro.value)
+    })
+
     const { notificar } = useNotificador()
+
     return {
       tarefas: computed(() => store.state.tarefa.tarefas),
       store,
-      notificar
+      notificar,
+      filtro
     }
   }
 });

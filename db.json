@@ -8,12 +8,13 @@
   "tarefas": [
     {
       "duracaoEmSegundos": 1,
-      "descricao": "TESTE 123",
-      "projeto": {
-        "nome": "TESTE",
-        "id": 1
-      },
-      "id": 0.2732718004449417
+      "descricao": "Guizao",
+      "id": 0.9148833671420784
+    },
+    {
+      "duracaoEmSegundos": 1,
+      "descricao": "123",
+      "id": 0.28500939643348944
     }
   ]
 }
