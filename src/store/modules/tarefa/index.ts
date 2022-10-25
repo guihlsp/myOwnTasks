@@ -41,7 +41,7 @@ export const tarefa: Module<EstadoTarefa, Estado> = {
             return http.put(`/tarefas/${tarefa.id}`, tarefa)
                 .then(resposta => commit(ALTERA_TAREFA, tarefa))
         },
-        [EXCLUIR_TAREFA]({commit}, id: string) {
+        [EXCLUIR_TAREFA]({commit}, id: number) {
             return http.delete(`/tarefas/${id}`)
                 .then(() => commit(EXCLUI_TAREFA, id))
         },

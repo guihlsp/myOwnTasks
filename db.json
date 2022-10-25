@@ -1,44 +1,19 @@
 {
   "projetos": [
     {
-      "id": 3,
-      "nome": "Teste"
+      "nome": "TESTE",
+      "id": 1
     }
   ],
   "tarefas": [
     {
-      "duracaoEmSegundos": 2,
-      "descricao": "teste321",
+      "duracaoEmSegundos": 1,
+      "descricao": "TESTE 123",
       "projeto": {
-        "nome": "Projeto 1",
+        "nome": "TESTE",
         "id": 1
       },
-      "id": 3
-    },
-    {
-      "duracaoEmSegundos": 11,
-      "descricao": "Jogar bola",
-      "id": 4
-    },
-    {
-      "duracaoEmSegundos": 1,
-      "descricao": "32131",
-      "id": 5
-    },
-    {
-      "duracaoEmSegundos": 1,
-      "descricao": "",
-      "id": 6
-    },
-    {
-      "duracaoEmSegundos": 1,
-      "descricao": "",
-      "id": 7
-    },
-    {
-      "duracaoEmSegundos": 1,
-      "descricao": "",
-      "id": 8
+      "id": 0.2732718004449417
     }
   ]
 }

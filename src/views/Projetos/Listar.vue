@@ -19,8 +19,8 @@
             </thead>
             <tbody>
                 <tr v-for="projeto in projetos" :key="projeto.id">
-                    <td class="id-column">{{projeto.id}}</td>
-                    <td>{{projeto.nome}}</td>
+                    <td class="id-column">{{ projeto.id }}</td>
+                    <td>{{ projeto.nome }}</td>
                     <td class="">
                         <div class="acoes">
                             <router-link :to="`/projetos/${projeto.id}`" class="button is-warning is-small">
@@ -69,7 +69,7 @@ export default defineComponent({
     setup() {
         const store = useStore()
         store.dispatch(OBTER_PROJETOS)
-        
+
         return {
             projetos: computed(() => store.state.projeto.projetos),
             store
